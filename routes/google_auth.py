@@ -31,3 +31,5 @@ def google_callback():
     session["user"] = user_info["email"]
     session["name"] = user_info["name"]
     return redirect(url_for("main_bp.home"))
+
+

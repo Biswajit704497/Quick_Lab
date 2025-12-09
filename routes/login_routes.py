@@ -4,12 +4,10 @@ login_bp = Blueprint('login_bp',__name__)
 
 @login_bp.route('/login', methods=['GET','POST'])
 def login():
-
     # if user is already logged in, redirect to home
     if "user" in session:
         flash("You are already logged in.", "success")
-        return redirect(url_for('main_bp.home')) 
-     
+        return redirect(url_for('main_bp.home'))
 
     if request.method == 'POST':
         username = request.form.get('username')
@@ -35,7 +33,8 @@ def login():
             flash("Database connection problem: " + str(e), "error")
 
         finally:
-            pass
+            if cur:
+                cur.close()
     return render_template('login.html')    
 
 

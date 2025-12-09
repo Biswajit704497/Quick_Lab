@@ -1,129 +1,233 @@
 {% extends 'base.html' %}
-{% block title %}Heart Test {% endblock %}
+{% block title %}Heart Attack Risk Assessment{% endblock %}
 
 {% block content %}
-<div class="box2">
-            <h1>HEART'S DATA</h1>
-            <p>input your data</p>
-            <form action="/heart_attack", method="post">
-                <div class="input-box">
-                    <label for="">Age</label>
-                    <input type="number" name="age" id="" placeholder="" required>
-                </div>
-                 <div class="input-box">
-                    <label for="">Gender</label>
-                    <select name="gender" id="" required>
-                        <option value="1">Male</option>
-                        <option value="0">Female</option>
-                    </select>
-                </div>
-                 <div class="input-box">
-                    <label for="">Cholesterol</label>
-                    <input type="number" name="cholesterol" id="" placeholder="" required>
-                </div>
-                 <div class="input-box">
-                    <label for="">High Blood Pressure</label>
-                    <input type="number" name="highBloodPressure" id="" placeholder="" required>
-                </div>
-                 <div class="input-box">
-                    <label for="">Low Blood Pressure</label>
-                    <input type="number" name="lowBloodPressure" id="" placeholder="" required>
-                </div>
-                 <div class="input-box">
-                    <label for="">Heart Rate</label>
-                    <input type="number" name="heartRate" id="" placeholder="" required>
-                </div>
-                <div class="input-box">
-                    <label for="">Diabetes</label>
-                     <select name="diabetes" id="" required>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                </div>
-                <div class="input-box">
-                    <label for="">Family History</label>
-                    <select name="familyHistory" id="" required>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                </div>
-                <div class="input-box">
-                    <label for="">Smoking</label>
-                    <select name="smoking" id="" required>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                </div>
-                 <div class="input-box">
-                    <label for="">Alcohol Consumption</label>
-                    <select name="alcoholConsumption" id="" required>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                </div>
-                <div class="input-box">
-                    <label for="">Exercise Hours Per Week</label>
-                    <input type="number" name="exerciseHours" id="" placeholder="" required>
-                </div>
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/heart_page.css') }}">
 
-                <div class="input-box">
-                    <label for="">Diet</label>
-                    <select name="diet" required>
-                        <option value="0">Average</option>
-                        <option value="1">Unhealthy</option>
-                        <option value="2">Healthy</option>
-                    </select>
-                </div>
+<section class="heart-section">
+  <div class="container">
+    <!-- Header -->
+    <div class="heart-header">
+      <h1>Heart Attack Risk Assessment</h1>
+      <p>Evaluate your cardiovascular health with our comprehensive assessment tool</p>
+    </div>
 
-                <div class="input-box">
-                    <label for="">Previous Heart Problems</label>
-                     <select name="previousHeartProblems" id="" required>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                </div>
+    <!-- Main Content -->
+    <div class="heart-container">
+      <!-- Form Card -->
+      <div class="heart-form-card">
+        <h2>Your Health Information</h2>
+        <p class="form-description">Please provide accurate information for better assessment</p>
 
-                <div class="input-box">
-                    <label for="">Medication Use</label>
-                     <select name="medicationUse" id="" required>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                </div>
+        <form action="/heart_attack" method="post" class="heart-form">
+          <!-- Personal Information -->
+          <div class="form-section">
+            <h3>Personal Information</h3>
 
-                <div class="input-box">
-                    <label for="">Stress Level</label>
-                    <input type="number" name="stressLevel" id="" placeholder="" required>
-                </div>
+            <div class="form-group">
+              <label for="age">Age (years)</label>
+              <input type="number" id="age" name="age" placeholder="Enter your age" min="1" max="150" required>
+            </div>
 
-                <div class="input-box">
-                    <label for="">BMI</label>
-                    <input type="number" name="bmi" id="" placeholder="" required>
-                </div>
-                <div class="input-box">
-                    <label for="">Physical Activity Days Per Week</label>
-                    <input type="number" name="physicalActivityDays" id="" placeholder="" required>
-                </div>
-                <div class="input-box">
-                    <label for="">Sleep Hours Per Day</label>
-                    <input type="number" name="sleepHours" id="" placeholder="" required>
-                </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Blood Pressure & Cholesterol -->
+          <div class="form-section">
+            <h3>Vital Measurements</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="highBloodPressure">Systolic BP (High)</label>
+                <input type="number" id="highBloodPressure" name="highBloodPressure" placeholder="e.g., 120" required>
+              </div>
+
+              <div class="form-group">
+                <label for="lowBloodPressure">Diastolic BP (Low)</label>
+                <input type="number" id="lowBloodPressure" name="lowBloodPressure" placeholder="e.g., 80" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cholesterol">Cholesterol (mg/dL)</label>
+              <input type="number" id="cholesterol" name="cholesterol" placeholder="Enter cholesterol level" required>
+            </div>
+
+            <div class="form-group">
+              <label for="heartRate">Heart Rate (bpm)</label>
+              <input type="number" id="heartRate" name="heartRate" placeholder="Enter resting heart rate" min="40"
+                max="200" required>
+            </div>
+          </div>
+
+          <!-- Lifestyle Factors -->
+          <div class="form-section">
+            <h3>Lifestyle Factors</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="smoking">Smoking</label>
+                <select id="smoking" name="smoking" required>
+                  <option value="">Select</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="alcoholConsumption">Alcohol Consumption</label>
+                <select id="alcoholConsumption" name="alcoholConsumption" required>
+                  <option value="">Select</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="exerciseHours">Exercise Hours Per Week</label>
+              <input type="number" id="exerciseHours" name="exerciseHours" placeholder="0 to 20+ hours" step="0.5"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label for="diet">Diet Quality</label>
+              <select id="diet" name="diet" required>
+                <option value="">Select Diet Type</option>
+                <option value="0">Average</option>
+                <option value="1">Unhealthy</option>
+                <option value="2">Healthy</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Medical History -->
+          <div class="form-section">
+            <h3>Medical History</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="diabetes">Diabetes</label>
+                <select id="diabetes" name="diabetes" required>
+                  <option value="">Select</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="familyHistory">Family History of Heart Disease</label>
+                <select id="familyHistory" name="familyHistory" required>
+                  <option value="">Select</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="previousHeartProblems">Previous Heart Problems</label>
+                <select id="previousHeartProblems" name="previousHeartProblems" required>
+                  <option value="">Select</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="medicationUse">Currently on Medication</label>
+                <select id="medicationUse" name="medicationUse" required>
+                  <option value="">Select</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mental Health -->
+          <div class="form-section">
+            <h3>Mental & Physical Wellbeing</h3>
+
+            <div class="form-group">
+              <label for="stressLevel">Stress Level (1-10)</label>
+              <input type="number" id="stressLevel" name="stressLevel" placeholder="Rate your stress 1-10" min="1"
+                max="10" required>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="heart-btn">Assess My Risk</button>
+        </form>
+      </div>
+
+      <!-- Result Card -->
+      <div class="heart-result-card">
+        <h2>Assessment Results</h2>
+
+        {% if result %}
+        <div class="heart-result-display">
+          <p class="result-text">{{ result }}</p>
+        </div>
+        {% else %}
+        <div class="result-empty">
+          <p>Submit the form to receive your heart health assessment</p>
+        </div>
+        {% endif %}
+
+        <!-- Health Tips -->
+        <div class="health-tips">
+          <h3>Heart Health Tips</h3>
+          <ul>
+            <li>Maintain a balanced, low-sodium diet</li>
+            <li>Exercise regularly (at least 150 min/week)</li>
+            <li>Manage stress through meditation or yoga</li>
+            <li>Avoid smoking and limit alcohol</li>
+            <li>Monitor blood pressure regularly</li>
+            <li>Get adequate sleep (7-9 hours)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Information Section -->
+    <div class="heart-info-section">
+      <h2>Understanding Heart Health</h2>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <h4>⚕️ Risk Factors</h4>
+          <p>Age, family history, smoking, high cholesterol, and high blood pressure are major heart disease risk
+            factors.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>💪 Prevention</h4>
+          <p>Regular exercise, healthy diet, stress management, and avoiding smoking can significantly reduce heart
+            disease risk.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>📊 Monitoring</h4>
+          <p>Regular health check-ups and monitoring of vital signs help detect issues early.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>🏥 Professional Care</h4>
+          <p>Consult with a cardiologist for personalized advice and comprehensive heart health evaluation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-               
-                <input  value="Predict" type="submit">
-
-                <label for="">Chance of heart Attack: 
-                    {% if result == 1 %}
-                        High
-                    {% elif result == 0 %}
-                        Low
-                    {% else %}
-                        N/A
-                    {% endif %}
-                </label>
-            </form>
-</div>
 {% endblock %}
-
-

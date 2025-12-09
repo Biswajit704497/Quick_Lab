@@ -23,11 +23,11 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero__body">
-        
+
         <h1 class="hero__title fade-in">
-            Your Health,<span>Predicted & Protected</span>
+          Your Health,<span>Predicted & Protected</span>
         </h1>
-        
+
         <div class="hero__actions fade-in-delay-2">
           <a href="{{ url_for('login_bp.login') }}" class="btn btn-primary hero__cta">
             <i class="bi bi-shield-check me-2"></i>
@@ -53,7 +53,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>
@@ -80,7 +80,7 @@
 <section id="services" class="section services">
   <div class="container">
     <div class="section-heading">
-     
+
       <h2 class="section-heading__title">
         Our Health Predict Model
       </h2>
@@ -94,7 +94,7 @@
         <div class="service-card__badge">BMI</div>
         <h3>Body balance insight</h3>
         <p>Track BMI alongside muscle-to-fat ratio benchmarks and get coaching cues tailored to your day.</p>
-        <a href="{{ url_for('bmi_bp.BMI') }}" >Open BMI flow</a>
+        <a href="{{ url_for('bmi_bp.BMI') }}">Open BMI flow</a>
       </article>
       <article class="service-card" data-theme="primary">
         <div class="service-card__badge">Heart</div>
@@ -169,19 +169,19 @@
 </section>
 
 
-        <!-- Footer -->
-        <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
-            <!-- Section: Social media -->
-            <section class="d-flex justify-content-between p-4" style="background-color: #6351ce">
+<!-- Footer -->
+<footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-between p-4" style="background-color: #6351ce">
 
-                <!-- Left -->
-                <!-- <div class="me-5">
+    <!-- Left -->
+    <!-- <div class="me-5">
                     <span>Get connected with us on social networks:</span>
                 </div> -->
-                <!-- Left -->
+    <!-- Left -->
 
-                <!-- Right -->
-                <!-- <div>
+    <!-- Right -->
+    <!-- <div>
                     <a href="" class="text-white me-4">
                         <i class="fab fa-linkedin"></i>
                     </a>
@@ -189,94 +189,92 @@
                         <i class="fab fa-github"></i>
                     </a>
                 </div> -->
-                <!-- Right -->
-            </section>
+    <!-- Right -->
+  </section>
 
-            <!-- Section: Social media -->
+  <!-- Section: Social media -->
 
-            <!-- Section: Links  -->
-            <section class="">
-                <div class="container text-center text-md-start mt-5">
-                    <!-- Grid row -->
-                    <div class="row mt-3">
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                            <!-- Content -->
-                            <h6 class="text-uppercase fw-bold">Quick Lab AI</h6>
-                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            <p>
-                                Our goal make the safe world using AI
-                            </p>
-                        </div>
-                        <!-- Grid column -->
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold">Quick Lab AI</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+          <p>
+            Our goal make the safe world using AI
+          </p>
+        </div>
+        <!-- Grid column -->
 
-                        <!-- Grid column -->
-                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Services</h6>
-                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            <p>
-                                <a href="#!" class="text-white">Cancer Analysis</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Dibatices Analysis</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Heart Attack Analysis</a>
-                            </p>
-                          
-                        </div>
-                        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">Services</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+          <p>
+            <a href="{{ url_for('bmi_bp.BMI' ) }}" class="text-white">Cancer Analysis</a>
+          </p>
+          <p>
+            <a href="#!" class="text-white">Dibatices Analysis</a>
+          </p>
+          <p>
+            <a href="#!" class="text-white">Heart Attack Analysis</a>
+          </p>
 
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Useful links</h6>
-                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            <p>
-                                <a href="#!" class="text-white">Your Account</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">About</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Contact</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-white">Help</a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
+        </div>
+        <!-- Grid column -->
 
-                        <!-- Grid column -->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Contact</h6>
-                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            
-                            <p>ytsubhadip0099@gmail.com</p>
-                            <p>  <a href="https://www.linkedin.com/in/subhadip-bar-496a682a2/" class="text-white me-4 fa-2x" target="_blank"><i class="fab fa-linkedin"></i></a></p>
-                            <p>  <a href="https://github.com/ytsubhadip" class="text-white me-4" target="_blank"><i class="fab fa-github fa-2x"></i></a></p>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                </div>
-            </section>
-            <!-- Section: Links  -->
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">Useful links</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+          <p>
+            <a href="{{ url_for('profile_bp.profile' ) }}" class="text-white">Your Account</a>
+          </p>
+          <p>
+            <a href="{{ url_for('login_bp.login' ) }}" class="text-white">Login</a>
+          </p>
+          <p>
+            <a href="{{ url_for('register_bp.register' ) }}" class="text-white">Registration</a>
+          </p>
+          <p>
+            <a href="#!" class="text-white">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
 
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                Made with ❤️ and ☕ in India
-                
-            </div>
-            <!-- Copyright -->
-        </footer>
-        <!-- Footer
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">Contact</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+
+          <p>ytsubhadip0099@gmail.com</p>
+          <p> <a href="https://www.linkedin.com/in/subhadip-bar-496a682a2/" class="text-white me-4 fa-2x"
+              target="_blank"><i class="fab fa-linkedin"></i></a></p>
+          <p> <a href="https://github.com/ytsubhadip" class="text-white me-4" target="_blank"><i
+                class="fab fa-github fa-2x"></i></a></p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    Made with ❤️ and ☕ in India
+
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 
 
 <script>

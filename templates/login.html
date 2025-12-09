@@ -5,36 +5,36 @@
 
 <div id="flash-popup-container">
   {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      {% for category, message in messages %}
-        <div class="flash-popup {{ category }}">
-          {{ message }}
-        </div>
-      {% endfor %}
-    {% endif %}
+  {% if messages %}
+  {% for category, message in messages %}
+  <div class="flash-popup {{ category }}">
+    {{ message }}
+  </div>
+  {% endfor %}
+  {% endif %}
   {% endwith %}
 </div>
 
 <section>
-    <div class="login-box">
-        <h2>LOGIN</h2>
-        <p>Please enter your username and password!</p>
-        <form method="post" action="/login">
-            <input type="text" placeholder="Username" name="username" required>
-            <input id="password" type="password" placeholder="Password" name="password" required>
-            <button type="submit" class="btn btn-hero btn-lg rounded-pill px-4 btn-outline-light">Login</button>
-        </form>
+  <div class="login-box">
+    <h2>LOGIN</h2>
+    <p>Please enter your username and password!</p>
+    <form method="post" action="/login">
+      <input type="text" placeholder="Username" name="username" required>
+      <input id="password" type="password" placeholder="Password" name="password" required>
+      <button type="submit" class="btn btn-hero btn-lg rounded-pill px-4 btn-outline-light">Login</button>
+    </form>
 
-        <div class="login-divider">or</div>
+    <div class="login-divider">or</div>
 
-        <a href="{{ url_for('google_auth.google_login' ) }}" class="google-login-btn">
-            <i class="fa-brands fa-google"></i>
-            <span>Continue with Google</span>
-        </a>
+    <a href="{{ url_for('google_auth.google_login' ) }}" class="google-login-btn">
+      <i class="fa-brands fa-google"></i>
+      <span>Continue with Google</span>
+    </a>
 
-   
-    
-    </div>
+
+
+  </div>
 
 
 </section>

@@ -1,83 +1,359 @@
-/* Page-level background and form styles (hero-like) */
+/* Heart Attack Risk Assessment - Clean and Responsive */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+:root {
+    --primary: #ef4444;
+    --primary-dark: #dc2626;
+    --primary-light: #fee2e2;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --gray-100: #f9fafb;
+    --gray-200: #f3f4f6;
+    --gray-300: #e5e7eb;
+    --gray-700: #374151;
+    --gray-900: #111827;
+}
 
-/* A centered card style for pages that need a form */
-.box2{
-    max-width: 920px;
-    margin: clamp(2rem, 6vw, 5.5rem) auto clamp(2rem, 4vw, 4rem);
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border: 1px solid var(--card-border);
-    padding: clamp(1.5rem, 4vw, 2rem);
+body {
+    background: #f9fafb;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--gray-900);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.heart-section {
+    padding: clamp(2rem, 6vw, 4rem) 1rem;
+}
+
+/* Header */
+.heart-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.heart-header h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.heart-header p {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    color: #6b7280;
+}
+
+/* Main Container */
+.heart-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 4rem;
+}
+
+/* Form Card */
+.heart-form-card {
+    background: #ffffff;
+    padding: clamp(2rem, 4vw, 2.5rem);
     border-radius: 12px;
-    box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-200);
 }
 
-.box2 h1{
-    margin-bottom: 0.25rem;
-    color: #fff;
-    font-size: clamp(1.25rem, 5vw, 1.6rem);
+.heart-form-card h2 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
-.box2 p{
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 1rem;
-    font-size: clamp(0.9rem, 2vw, 1rem);
+.form-description {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Input styles inside .box2 */
-.box2 .input-box{
+.heart-form {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
-    margin-bottom: 0.9rem;
+    gap: 1.5rem;
 }
 
-.box2 label{
-    color: rgba(255,255,255,0.8);
+.form-section {
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 1.5rem;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.form-section h3 {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    color: var(--primary);
+    margin-bottom: 1rem;
     font-weight: 600;
-    font-size: clamp(0.85rem, 2vw, 0.95rem);
 }
 
-.box2 input[type="number"],
-.box2 select{
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    color: var(--text-soft);
-    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.6rem, 2vw, 0.75rem);
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--gray-700);
+    font-size: clamp(0.95rem, 2vw, 1rem);
+}
+
+.form-group input,
+.form-group select {
+    padding: clamp(0.75rem, 2vw, 0.9rem) 1rem;
+    border: 1.5px solid var(--gray-300);
     border-radius: 8px;
+    font-size: clamp(0.95rem, 2vw, 1rem);
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    color: var(--gray-900);
+}
+
+.form-group input:focus,
+.form-group select:focus {
     outline: none;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    background: #fef2f2;
 }
 
-.box2 input[type="number"]:focus,
-.box2 select:focus{
-    box-shadow: 0 6px 24px rgba(14,165,233,0.08);
-    border-color: rgba(14,165,233,0.65);
+.form-group input:hover:not(:focus),
+.form-group select:hover:not(:focus) {
+    border-color: #d1d5db;
 }
 
-.box2 input[type="submit"]{
-    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+.heart-btn {
+    width: 100%;
+    padding: clamp(0.85rem, 2.5vw, 1rem);
+    font-size: clamp(0.95rem, 2vw, 1rem);
+    font-weight: 600;
     border: none;
-    color: white;
-    padding: clamp(0.6rem, 2vw, 0.7rem) clamp(1rem, 3vw, 1.25rem);
-    border-radius: 10px;
-    font-weight: 700;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #ffffff;
     cursor: pointer;
-    transition: transform .12s ease, box-shadow .12s ease;
-    font-size: clamp(0.9rem, 2vw, 1rem);
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+    margin-top: 1rem;
 }
 
-.box2 input[type="submit"]:hover{
+.heart-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(14,165,233,0.12);
+    box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
 }
 
-/* Responsive: make inputs wrap nicely */
-@media (min-width: 900px){
-    .box2 .input-grid{
-        display: grid;
+.heart-btn:active {
+    transform: translateY(0);
+}
+
+/* Result Card */
+.heart-result-card {
+    background: #ffffff;
+    padding: clamp(2rem, 4vw, 2.5rem);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-200);
+}
+
+.heart-result-card h2 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.result-empty {
+    text-align: center;
+    padding: 2rem;
+    color: #9ca3af;
+    font-size: 1rem;
+    background: var(--gray-100);
+    border-radius: 8px;
+}
+
+.heart-result-display {
+    background: var(--primary-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.result-text {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    font-weight: 600;
+    color: var(--primary-dark);
+    text-align: center;
+}
+
+.health-tips {
+    margin-top: 2rem;
+}
+
+.health-tips h3 {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.health-tips ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.health-tips li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--gray-100);
+    border-radius: 6px;
+    font-size: clamp(0.9rem, 2vw, 0.95rem);
+    color: var(--gray-700);
+}
+
+.health-tips li::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--success);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* Information Section */
+.heart-info-section {
+    background: #ffffff;
+    padding: clamp(2rem, 4vw, 3rem);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-200);
+}
+
+.heart-info-section h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--gray-900);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-card {
+    padding: 1.5rem;
+    background: var(--gray-100);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h4 {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.info-card p {
+    color: #6b7280;
+    font-size: clamp(0.9rem, 2vw, 0.95rem);
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .heart-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .heart-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .heart-header {
+        margin-bottom: 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .heart-form-card,
+    .heart-result-card,
+    .heart-info-section {
+        padding: 1.5rem;
+    }
+
+    .heart-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .form-section h3 {
+        font-size: 1rem;
+    }
+
+    .health-tips li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }

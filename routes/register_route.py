@@ -26,8 +26,7 @@ def register():
         
         sql_query = """
             INSERT INTO user(email,phone_number,full_name,username,password)
-            VALUES(%s, %s, %s , %s , %s )
-            """
+            VALUES(%s, %s, %s , %s , %s )"""
         cur = None
         conn = None
         try:
@@ -39,7 +38,5 @@ def register():
             return redirect(url_for("login_bp.login"))
         except Exception as e:
             flash("database connection probleam",e)
-        finally:
-            cur.close()
-            conn.close()
+       
     return render_template('register.html')
