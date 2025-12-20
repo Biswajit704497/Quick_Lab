@@ -3,6 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/footer.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/hear_page.css') }}">
@@ -114,7 +115,7 @@
         <div class="service-card__badge">Cancer</div>
         <h3>Cancer analysis</h3>
         <p>Combine questionnaire data with lab values to prioritize screenings and conversations.</p>
-        <a href="{{ url_for('diabetes_bp.diabetes') }}">Open cancer flow</a>
+        <a href="{{ url_for('cancer_bp.cancer') }}">Open cancer flow</a>
       </article>
     </div>
   </div>
@@ -216,13 +217,16 @@
           <h6 class="text-uppercase fw-bold">Services</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
           <p>
-            <a href="{{ url_for('bmi_bp.BMI' ) }}" class="text-white">Cancer Analysis</a>
+            <a href="{{ url_for('cancer_bp.cancer' ) }}" class="text-white">Cancer Analysis</a>
           </p>
           <p>
-            <a href="#!" class="text-white">Dibatices Analysis</a>
+            <a href="{{ url_for('diabetes_bp.diabetes' ) }}" class="text-white">Dibatices Analysis</a>
           </p>
           <p>
-            <a href="#!" class="text-white">Heart Attack Analysis</a>
+            <a href="{{ url_for('heart_bp.heart_attack' ) }}" class="text-white">Heart Attack Analysis</a>
+          </p>
+          <p>
+            <a href="{{ url_for('bmi_bp.BMI' ) }}" class="text-white">BMI Test</a>
           </p>
 
         </div>
@@ -242,6 +246,7 @@
           <p>
             <a href="{{ url_for('register_bp.register' ) }}" class="text-white">Registration</a>
           </p>
+          
           <p>
             <a href="#!" class="text-white">Help</a>
           </p>

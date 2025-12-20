@@ -1,7 +1,83 @@
 {% extends 'base.html' %}
+{% block title %}Diabetes Risk Checker{% endblock %}
 
-{% block title %} Diabetes Analysis {% endblock %}
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/diabetes.css') }}">
 
+<section class="diabetes-section">
+  <div class="container">
+    <div class="diabetes-header">
+      <h1>Diabetes Risk Checker</h1>
+      <p>Enter your health information below to get a quick risk estimate.</p>
+    </div>
+
+    <div class="diabetes-container">
+      <div class="diabetes-form-card">
+        <h2>Patient Data</h2>
+        <p class="form-description">Provide numeric values. Fields are required unless noted.</p>
+
+        <form action="/diabetes" method="post" class="diabetes-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="pregnancies">Pregnancies</label>
+              <input type="number" id="pregnancies" name="Pregnancies" min="0" step="1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="glucose">Glucose</label>
+              <input type="number" id="glucose" name="Glucose" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="bloodpressure">Blood Pressure</label>
+              <input type="number" id="bloodpressure" name="BloodPressure" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="skinthickness">Skin Thickness</label>
+              <input type="number" id="skinthickness" name="SkinThickness" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="insulin">Insulin</label>
+              <input type="number" id="insulin" name="Insulin" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="bmi">BMI</label>
+              <input type="number" id="bmi" name="bmi" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="dpf">Diabetes Pedigree Function</label>
+              <input type="number" id="dpf" name="dpf" step="0.001" required>
+            </div>
+
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="number" id="age" name="Age" min="0" step="1" required>
+            </div>
+          </div>
+
+          <button type="submit" class="diabetes-btn">Check Risk</button>
+        </form>
+      </div>
+
+      <div class="diabetes-result-card">
+        <h2>Result</h2>
+        {% if result %}
+          <div class="result-display">{{ result }}</div>
+        {% else %}
+          <div class="result-empty">Complete the form to see the prediction.</div>
+        {% endif %}
+
+        <div class="info">
+          <h3>Guidance</h3>
+          <p>This is an estimation tool based on a trained model. For medical advice, consult a clinician.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock %}

@@ -17,7 +17,7 @@ def login():
         try:
 
             cur = mysql.connect.cursor()
-            cur.execute("SELECT * FROM user WHERE username=%s AND password=%s", (username, password))
+            cur.execute("SELECT * FROM userlogin WHERE username=%s AND password=%s", (username, password))
             user = cur.fetchone()
             
             # print("database reply",user)

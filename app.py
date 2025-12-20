@@ -8,6 +8,7 @@ from routes.register_route import register_bp
 from routes.diabetes_routes import diabetes_bp
 from routes.user_profile import profile_bp
 from routes.google_auth import google_auth
+from routes.cancer_routes import cancer_bp
 import os
 import requests
 
@@ -28,6 +29,7 @@ app.register_blueprint(register_bp)
 app.register_blueprint(diabetes_bp)
 app.register_blueprint(profile_bp)
 app.register_blueprint(google_auth)
+app.register_blueprint(cancer_bp)
 
 @app.route("/db_test")
 def db_test():

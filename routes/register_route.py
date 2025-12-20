@@ -25,7 +25,7 @@ def register():
         )
         
         sql_query = """
-            INSERT INTO user(email,phone_number,full_name,username,password)
+            INSERT INTO userlogin(email,phone_number,full_name,username,password)
             VALUES(%s, %s, %s , %s , %s )"""
         cur = None
         conn = None
