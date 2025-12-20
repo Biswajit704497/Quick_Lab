@@ -9,14 +9,19 @@ from routes.diabetes_routes import diabetes_bp
 from routes.user_profile import profile_bp
 from routes.google_auth import google_auth
 from routes.cancer_routes import cancer_bp
+from routes.chatbot_route import chatbot_bp
 import os
 import requests
+from flask_cors import CORS
+
+
 
 from db_config import init_mysql
 
 app = Flask(__name__,static_folder='static')
 app.secret_key = "asasacddf1f2d15f4d5f5d4f55454212143@d4s5d4as" 
 
+CORS(app)
 
 # init_db(app)
 mysql = init_mysql(app)
@@ -30,6 +35,7 @@ app.register_blueprint(diabetes_bp)
 app.register_blueprint(profile_bp)
 app.register_blueprint(google_auth)
 app.register_blueprint(cancer_bp)
+app.register_blueprint(chatbot_bp)
 
 @app.route("/db_test")
 def db_test():
