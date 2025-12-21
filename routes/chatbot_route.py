@@ -8,7 +8,7 @@ def chatbot():
 
     return render_template("chatbot.html")
 
-@chatbot_bp.route('/ask', methods = ['POST'])
+@chatbot_bp.route('/ask', methods = ['POST','GET'])
 def ask():
     data = request.json
     question = data.get("question", "")
