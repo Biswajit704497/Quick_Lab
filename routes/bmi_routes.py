@@ -3,8 +3,8 @@ from models.bmi_calculate import BMI_def
 
 bmi_bp = Blueprint('bmi_bp', __name__)
 
-@bmi_bp.route("/BMI", methods=['GET', 'POST'])
-def BMI():
+@bmi_bp.route("/bmi_route", methods=['GET', 'POST'])
+def bmi():
     if 'user' not in session:
         print(True)
         flash('Please log in first to access BMI calculator.', 'warning')
