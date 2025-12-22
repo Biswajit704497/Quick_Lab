@@ -1,9 +1,12 @@
 import os
 import joblib
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+path = os.path.join(current_dir, "heart_atack_model.pkl")
+
 
 # Load the model
-model = joblib.load("C:\\Users\\ytsub\\Desktop\\github\\Know_Your_Health_MLModel\\models\\heart_atack_model.pkl")
+model = joblib.load(path)
 
 def heart_def(data):
     return model.predict(data)
