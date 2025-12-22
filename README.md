@@ -1,7 +1,7 @@
 
 # Quick Lab — Know Your Health
 
-![Hero Image](static/images/hero.png)
+
 
 
 <!-- Project tech badges -->
