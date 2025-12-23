@@ -1,5 +1,6 @@
 from flask import Blueprint, flash,redirect,url_for,request, render_template,jsonify
-from models.chatModel import ask_ai
+# from models.chatModel import ask_ai
+from models.openai_chatbot import ask_ai
 
 chatbot_bp =Blueprint('chatbot_bp',__name__)
 
