@@ -13,6 +13,7 @@ def ask_ai(question):
         prompt = (
             "Answer in maximum 2 short sentences. "
             "Use simple words. "
+            "Behave like a Health CHat bot"
             f"Question: {question}"
         )
 
