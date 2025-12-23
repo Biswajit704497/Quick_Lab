@@ -10,7 +10,7 @@ def bmi():
         flash('Please log in first to access BMI calculator.', 'warning')
         return redirect(url_for('login_bp.login'))
 
-    person_bmi = []
+    person_bmi = None
     if request.method == 'POST':
         weight = int(request.form.get('weight', 0))
         height = int(request.form.get('height', 0))

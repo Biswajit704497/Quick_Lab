@@ -167,7 +167,7 @@
     /* Responsive Design */
     @media (max-width: 768px) {
         .container_chatbox {
-            padding: 1rem;
+            
             min-height: calc(100vh - 60px);
         }
 
@@ -204,7 +204,7 @@
 
     @media (max-width: 576px) {
         body {
-            padding-top: 70px;
+          padding: 0;
         }
 
         .container_chatbox {
@@ -284,7 +284,7 @@ function askAI() {
     // show typing...
     addMessage("Typing...", "bot");
 
-    fetch("http://127.0.0.1:5000/ask", {
+    fetch("https://quick-lab.onrender.com/ask", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

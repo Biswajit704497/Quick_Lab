@@ -27,10 +27,10 @@ def login():
                 flash("Login successful!", "success")
                 return redirect(url_for('main_bp.home'))
             else:
-                flash("Invalid username or password", "danger")
+                flash("Invalid username or password", "warning")
 
         except Exception as e:
-            flash("Database connection problem: " + str(e), "error")
+            flash("Database connection problem", "error")
 
         finally:
             if cur:

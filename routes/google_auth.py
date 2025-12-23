@@ -1,7 +1,7 @@
 from flask import Blueprint, session, redirect, url_for
 from authlib.integrations.flask_client import OAuth
 import os
-import requests
+
 
 google_auth = Blueprint("google_auth", __name__)
 oauth = OAuth()
