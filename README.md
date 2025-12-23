@@ -47,7 +47,7 @@ Live demo: https://quick-lab.onrender.com/
 
 ---
 
-## **How the cancer model is loaded**
+## **How the ML model is loaded**
 The app loads the cancer model from the `models` directory. Example code (already used in `models/cancer_model.py`):
 
 ```py
@@ -93,22 +93,12 @@ python app.py
 
 ---
 
-## **Notes & tips**
-- Ensure the `models/cancer.pkl` and other model files remain in the `models/` folder. If you move them, update the load path accordingly.
-- To update or retrain models, use the notebooks in the `train/` folder and then export the trained model files into `models/`.
-
----
-
 ## **Contributing / Next steps**
 - Add tests for prediction endpoints.
 - Improve model explainability (show feature importance).
 - Add Dockerfile for consistent deployment.
 
 ---
-
-If you'd like, I can also:
-- generate a polished hero image and place it at `static/images/hero.png` to match the screenshot theme you uploaded,
-- or add badges and a compact project card section like the screenshot.
-
+### **Last Update - 22-12-2025
 
 
