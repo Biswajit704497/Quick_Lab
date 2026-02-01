@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, session,flash,redirect,url_for
-from models.bmi_calculate import BMI_def
+from module.bmi_calculate import BMI_def
 
 bmi_bp = Blueprint('bmi_bp', __name__)
 

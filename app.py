@@ -1,5 +1,4 @@
 from flask import Flask
-# from db_config import mysql,init_db 
 from routes.main_routes import main_bp
 from routes.bmi_routes import bmi_bp
 from routes.heart_routes import heart_bp
@@ -10,8 +9,9 @@ from routes.user_profile import profile_bp
 from routes.google_auth import google_auth
 from routes.cancer_routes import cancer_bp
 from routes.chatbot_route import chatbot_bp
+from routes.dashbord_routes import dashbord_bp
+from routes.about_routes import about_bp
 import os
-import requests
 from flask_cors import CORS
 
 
@@ -36,13 +36,10 @@ app.register_blueprint(profile_bp)
 app.register_blueprint(google_auth)
 app.register_blueprint(cancer_bp)
 app.register_blueprint(chatbot_bp)
+app.register_blueprint(dashbord_bp)
+app.register_blueprint(about_bp)
 
-@app.route("/db_test")
-def db_test():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT 1")
-    data = cur.fetchone()
-    return f"Database OK: {data}"
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

@@ -30,53 +30,19 @@
         </h1>
 
         <div class="hero__actions fade-in-delay-2">
-          <a href="{{ url_for('login_bp.login') }}" class="btn btn-primary hero__cta">
+          <a href="{{ url_for('dashbord_bp.dashbord') }}" class="btn btn-primary hero__cta">
             <i class="bi bi-shield-check me-2"></i>
-            Launch Assessment
+            Launch Dashbord
           </a>
-          <a href="{{ url_for('chatbot_bp.chatbot' ) }}" class="btn hero__ghost">
-            <i class="bi bi-robot me-2"></i>
-            Try Health Bot
-          </a>
+
         </div>
-        <div class="hero__metrics">
-          <div class="hero__metric">
-            <span>95%</span>
-            <p>Model precision across screenings</p>
-          </div>
-          <div class="hero__metric">
-            <span>24/7</span>
-            <p>Encrypted insights in your pocket</p>
-          </div>
-          <div class="hero__metric">
-            <span>1M+</span>
-            <p>Risk evaluations delivered</p>
-          </div>
-        </div>
+
       </div>
 
     </div>
   </div>
 </section>
 
-<section class="section trust">
-  <div class="container">
-    <div class="trust-grid">
-      <article class="trust-card">
-        <h3>Clinical grade</h3>
-        <p>Models trained on medical research and validated with clinician feedback.</p>
-      </article>
-      <article class="trust-card">
-        <h3>Privacy first</h3>
-        <p>Encrypted workflows keep every entry secure, whether you’re on desktop or mobile.</p>
-      </article>
-      <article class="trust-card">
-        <h3>Actionable routing</h3>
-        <p>Every prediction includes next steps, lifestyle cues, and export-ready summaries.</p>
-      </article>
-    </div>
-  </div>
-</section>
 
 <section id="services" class="section services">
   <div class="container">
@@ -91,12 +57,7 @@
     </div>
 
     <div class="services__grid">
-      <article class="service-card" data-theme="night">
-        <div class="service-card__badge">BMI</div>
-        <h3>Body balance insight</h3>
-        <p>Track BMI alongside muscle-to-fat ratio benchmarks and get coaching cues tailored to your day.</p>
-        <a href="{{ url_for('bmi_bp.bmi') }}">Open BMI flow</a>
-      </article>
+
       <article class="service-card" data-theme="primary">
         <div class="service-card__badge">Heart</div>
         <h3>Heart attack analysis</h3>
@@ -124,19 +85,19 @@
 <section id="how-it-works" class="section journey">
   <div class="container">
     <div class="section-heading">
-      <h2 class="section-heading__title">A calm path from input to insight</h2>
+      <h2 class="section-heading__title">How It Works</h2>
       <p class="section-heading__subtitle"></p>
     </div>
 
     <div class="journey__timeline">
       <article class="journey-step">
         <span class="journey-step__number">01</span>
-        <h3>Gather signals</h3>
+        <h3>User Data</h3>
         <p>Enter vitals, lifestyle notes, and lab values with inline help and validation.</p>
       </article>
       <article class="journey-step">
         <span class="journey-step__number">02</span>
-        <h3>Run AI analysis</h3>
+        <h3>Health Model</h3>
         <p>Palette-tuned charts highlight anomalies using our multi-condition models.</p>
       </article>
       <article class="journey-step">
@@ -146,12 +107,14 @@
       </article>
       <article class="journey-step">
         <span class="journey-step__number">04</span>
-        <h3>Act &amp; share</h3>
+        <h3>Show Dashbord</h3>
         <p>Export summaries for your care team or follow the guided routines in-app.</p>
       </article>
     </div>
   </div>
 </section>
+
+{% if 'user' not in session%}
 
 <section class="section cta">
   <div class="container">
@@ -169,28 +132,15 @@
   </div>
 </section>
 
+{%endif%}
+
 
 <!-- Footer -->
 <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-between p-4" style="background-color: #6351ce">
 
-    <!-- Left -->
-    <!-- <div class="me-5">
-                    <span>Get connected with us on social networks:</span>
-                </div> -->
-    <!-- Left -->
 
-    <!-- Right -->
-    <!-- <div>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div> -->
-    <!-- Right -->
   </section>
 
   <!-- Section: Social media -->
@@ -203,55 +153,30 @@
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
-          <h6 class="text-uppercase fw-bold">Quick Lab AI</h6>
-          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-          <p>
-            Our goal make the safe world using AI
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Services</h6>
-          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-          <p>
-            <a href="{{ url_for('cancer_bp.cancer' ) }}" class="text-white">Cancer Analysis</a>
-          </p>
-          <p>
-            <a href="{{ url_for('diabetes_bp.diabetes' ) }}" class="text-white">Dibatices Analysis</a>
-          </p>
-          <p>
-            <a href="{{ url_for('heart_bp.heart_attack' ) }}" class="text-white">Heart Attack Analysis</a>
-          </p>
-          <p>
-            <a href="{{ url_for('bmi_bp.bmi' ) }}" class="text-white">BMI Test</a>
-          </p>
+          <h6 class="text-uppercase fw-bold" style="font-size: 2rem;">Quick Lab AI</h6>
+          <!-- <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" /> -->
 
         </div>
         <!-- Grid column -->
 
+       
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold">Useful links</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
           <p>
-            <a href="{{ url_for('profile_bp.profile' ) }}" class="text-white">Your Account</a>
-          </p>
-          <p>
             <a href="{{ url_for('login_bp.login' ) }}" class="text-white">Login</a>
           </p>
           <p>
             <a href="{{ url_for('register_bp.register' ) }}" class="text-white">Registration</a>
           </p>
-          
+
           <p>
-            <a href="#!" class="text-white">Help</a>
+            <a href="#" class="text-white">Help</a>
           </p>
         </div>
-        <!-- Grid column -->
+        <!-- Grid column -->  
 
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">

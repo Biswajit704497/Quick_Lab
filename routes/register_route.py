@@ -36,7 +36,7 @@ def register():
             conn.commit()
             flash("Registration Successfully", "success")
             return redirect(url_for("login_bp.login"))
-        except Exception as e:
-            flash("database connection probleam",e)
+        except Exception :
+            flash("database connection probleam","warning")
        
     return render_template('register.html')

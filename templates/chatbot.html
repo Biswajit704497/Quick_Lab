@@ -284,7 +284,7 @@ function askAI() {
     // show typing...
     addMessage("Typing...", "bot");
 
-    fetch("https://quick-lab.onrender.com/ask", {
+    fetch("http://127.0.0.1:5000/ask", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

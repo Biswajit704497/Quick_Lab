@@ -1,0 +1,13 @@
+Diet : 
+    0 -> Average
+    1 -> Unhealthy
+    2 -> Healthy
+
+Sex :
+    0 -> Female
+    1 -> Male
+
+Change "Who made this ?" to "The team Behind QuickLab" and update its description 
+24/7 Services Available
+"Health predict" to "QuickLab"
+add a new heading "Our Vision"
