@@ -7,4 +7,8 @@ def home():
     
     return render_template("home.html")
 
+@main_bp.route("/help_page")
+def help():
+    return render_template('helppage.html')
+
 
