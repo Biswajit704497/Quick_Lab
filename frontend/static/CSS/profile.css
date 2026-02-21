@@ -1,95 +1,208 @@
-/* -------- Profile Container -------- */
+/* Antigravity Profile Design */
 
-section{
-    margin-top: clamp(3rem, 6vw, 6rem);
+.profile-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
 }
-.profile-container {
-    max-width: 600px;
-    margin: clamp(1.5rem, 4vw, 3rem) auto;
-    padding: clamp(1.5rem, 4vw, 2rem);
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+.container-profile {
+    max-width: 1000px;
+    z-index: 1;
+}
+
+.profile-card {
+    background: rgba(var(--bg-white-rgb), 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-float);
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .profile-card {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Sidebar Styling (Left) */
+.profile-sidebar {
+    background: rgba(var(--primary-rgb, 66, 133, 244), 0.03);
+    padding: 4rem 2rem;
     text-align: center;
-    transition: transform 0.3s ease;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.profile-container:hover {
-    transform: translateY(-3px);
+[data-theme="dark"] .profile-sidebar {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Heading */
-.profile-container h2 {
-    margin-bottom: 25px;
-    font-size: clamp(1.5rem, 5vw, 2rem);
+.profile-img-wrapper {
+    width: 150px;
+    height: 150px;
+    background: var(--bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--primary);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2rem;
+    border: 4px solid var(--soft-gray);
+}
+
+.profile-id-box {
+    background: var(--bg-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    box-shadow: var(--shadow-soft);
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.id-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+}
+
+.id-value {
+    font-family: inherit;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: #333;
+    color: var(--primary);
 }
 
-/* -------- Profile Details -------- */
-.profile-details {
-    text-align: left;
-    margin-top: 10px;
+/* Main Content Styling (Right) */
+.profile-main {
+    padding: 4rem 3.5rem;
 }
 
-.profile-details p {
-    font-size: clamp(0.95rem, 2.5vw, 1.125rem);
-    margin-bottom: 12px;
-    padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 2vw, 1.25rem);
-    background: #f7f8fc;
-    border-radius: 10px;
-    border-left: 5px solid #007bff;
-    transition: background 0.2s ease;
+.profile-header {
+    margin-bottom: 3rem;
 }
 
-.profile-details p:hover {
-    background: #eef2ff;
+.profile-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
 }
 
-.profile-details strong {
-    color: #222;
+.profile-header p {
+    color: var(--text-muted);
 }
 
-/* -------- Logout Button -------- */
-.profile-container a.btn {
-    background: linear-gradient(135deg, #007bff, #0056d6);
-    color: #fff !important;
-    border: none;
-    padding: clamp(0.65rem, 2vw, 0.85rem) clamp(1.25rem, 4vw, 1.75rem);
-    font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.detail-item {
+    margin-bottom: 0.5rem;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.detail-value {
+    font-size: 1.1rem;
     font-weight: 600;
-    border-radius: 50px;
+    color: var(--text-dark);
+}
+
+/* Actions */
+.profile-actions {
+    margin-top: 4rem;
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: #ef4444;
+    color: white !important;
     text-decoration: none;
-    display: inline-block;
-    transition: 0.3s ease;
-    cursor: pointer;
+    border-radius: 18px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.profile-container a.btn:hover {
-    background: linear-gradient(135deg, #0056d6, #0040a8);
-    transform: translateY(-2px);
+.btn-logout:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
 }
 
-/* -------- Responsive -------- */
+/* Background Elements (copied for consistency) */
+.auth-blobs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.auth-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.1;
+    animation: blob-move 25s infinite alternate;
+}
+
+.blob-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--primary);
+    top: -10%;
+    left: -10%;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: #8b5cf6;
+    bottom: -10%;
+    right: -10%;
+    animation-delay: -7s;
+}
+
 @media (max-width: 768px) {
-    .profile-container {
-        margin: clamp(1rem, 3vw, 1.5rem);
-        padding: clamp(1.25rem, 3vw, 1.75rem);
+    .profile-sidebar {
+        padding: 3rem 2rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .profile-details p {
-        padding: clamp(0.6rem, 1.5vw, 0.8rem) clamp(0.9rem, 1.5vw, 1rem);
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-container {
-        margin: 1rem 0.75rem;
-        padding: clamp(1rem, 2vw, 1.25rem);
+    .profile-main {
+        padding: 3rem 2rem;
     }
 
-    .profile-details p {
-        font-size: clamp(0.9rem, 2vw, 1rem);
-        padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.75rem, 1.5vw, 1rem);
+    .profile-section {
+        padding-top: 8rem;
     }
 }

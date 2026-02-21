@@ -1,49 +1,54 @@
 {% extends 'base.html' %}
-{% block title %} Login Page {% endblock %}
+{% block title %} Login | Antigravity Health {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/login_page.css') }}">
 
-<div id="flash-popup-container">
-  {% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-  {% for category, message in messages %}
-  <div class="flash-popup {{ category }}">
-    {{ message }}
+
+
+<div class="auth-section">
+  <!-- Animated Background Blobs -->
+  <div class="auth-blobs">
+    <div class="auth-blob blob-1"></div>
+    <div class="auth-blob blob-2"></div>
   </div>
-  {% endfor %}
-  {% endif %}
-  {% endwith %}
+
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Welcome Back</h2>
+        <p>Zero-friction access to your health metrics.</p>
+      </div>
+
+      <form method="post" action="/login">
+        <div class="form-group">
+          <input type="text" class="form-input" placeholder="Username" name="username" required>
+        </div>
+
+        <div class="form-group">
+          <input id="password" type="password" class="form-input" placeholder="Password" name="password" required>
+        </div>
+
+        <button type="submit" class="auth-btn">
+          <span>Sign In</span>
+          <i class="bi bi-arrow-right-short"></i>
+        </button>
+      </form>
+
+      <div class="auth-divider">
+        <span>OR</span>
+      </div>
+
+      <a href="{{ url_for('google_auth.google_login' ) }}" class="google-btn">
+        <i class="bi bi-google"></i>
+        <span>Continue with Google</span>
+      </a>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="{{ url_for('register_bp.register' ) }}">Create One</a>
+      </div>
+    </div>
+  </div>
 </div>
 
-<section>
-  <div class="login-box">
-    <h2>LOGIN</h2>
-    <p>Please enter your username and password!</p>
-    <form method="post" action="/login">
-      <input type="text" placeholder="Username" name="username" required>
-      <input id="password" type="password" placeholder="Password" name="password" required>
-      <button type="submit" class="btn btn-hero btn-lg rounded-pill px-4 btn-outline-light">Login</button>
-    </form>
 
-    <div class="login-divider">or</div>
-
-    <a href="{{ url_for('google_auth.google_login' ) }}" class="google-login-btn">
-      <i class="fa-brands fa-google"></i>
-      <span>Continue with Google</span>
-    </a>
-    <p style="font-size: 0.9rem; margin-top: 10px;">Create a account <a href="{{ url_for('register_bp.register' ) }}">Sign Up</a></p>
-
-
-  </div>
-
-
-</section>
-<script>
-  setTimeout(() => {
-    document.querySelectorAll('.flash-popup').forEach((popup) => {
-      popup.style.animation = "popup-hide 0.5s forwards";
-      setTimeout(() => popup.remove(), 500);
-    });
-  }, 3000);
-</script>
-{%endblock%}
+{% endblock %}

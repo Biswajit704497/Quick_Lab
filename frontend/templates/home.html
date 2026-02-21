@@ -5,214 +5,220 @@
 {% block content %}
 
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='CSS/footer.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='CSS/hear_page.css') }}">
 
-<div id="flash-popup-container">
-  {% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-  {% for category, message in messages %}
-  <div class="flash-popup {{ category }}">
-    {{ message }}
-  </div>
-  {% endfor %}
-  {% endif %}
-  {% endwith %}
-</div>
 
-<section id="home" class="hero hero--split">
+<section id="home" class="hero">
   <div class="container">
     <div class="hero-grid">
-      <div class="hero__body">
-
-        <h1 class="hero__title fade-in">
-          Your Health,<span>Predicted & Protected</span>
+      <div class="hero__body floating-element">
+        <h1 class="hero__title">
+          Quick Lab<span> &nbsp; <br>AI Predictor</span>
         </h1>
-
-        <div class="hero__actions fade-in-delay-2">
-          <a href="{{ url_for('dashbord_bp.dashbord') }}" class="btn btn-primary hero__cta">
-            <i class="bi bi-shield-check me-2"></i>
-            Launch Dashbord
+        <p class="hero__subtitle mb-5">
+          Experience the future of health with our zero-friction, predictive models. Clean, fast, and weightless.
+        </p>
+        <div class="hero__actions">
+          <a href="#" class="hero__cta">
+            Launch Workspace
           </a>
-
+          <a href="#services" class="hero__ghost">
+            Explore Models
+          </a>
         </div>
-
       </div>
-
-    </div>
-  </div>
-</section>
-
-
-<section id="services" class="section services">
-  <div class="container">
-    <div class="section-heading">
-
-      <h2 class="section-heading__title">
-        Our Health Predict Model
-      </h2>
-      <p class="section-heading__subtitle">
-        Launch the module you need and follow the guided steps to get verified results in minutes.
-      </p>
-    </div>
-
-    <div class="services__grid">
-
-      <article class="service-card" data-theme="primary">
-        <div class="service-card__badge">Heart</div>
-        <h3>Heart attack analysis</h3>
-        <p>Blend ECG-inspired metrics with lifestyle markers to surface early warning signals.</p>
-        <a href="{{ url_for('heart_bp.heart_attack') }}">Open heart flow</a>
-      </article>
-
-      <article class="service-card" data-theme="accent">
-        <div class="service-card__badge">Diabetes</div>
-        <h3>Glucose outlook</h3>
-        <p>Run fasting, post-meal, and HbA1c inputs through adaptive thresholds before symptoms appear.</p>
-        <a href="{{ url_for('diabetes_bp.diabetes') }}">Open diabetes flow</a>
-      </article>
-
-      <article class="service-card" data-theme="soft">
-        <div class="service-card__badge">Cancer</div>
-        <h3>Cancer analysis</h3>
-        <p>Combine questionnaire data with lab values to prioritize screenings and conversations.</p>
-        <a href="{{ url_for('cancer_bp.cancer') }}">Open cancer flow</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="how-it-works" class="section journey">
-  <div class="container">
-    <div class="section-heading">
-      <h2 class="section-heading__title">How It Works</h2>
-      <p class="section-heading__subtitle"></p>
-    </div>
-
-    <div class="journey__timeline">
-      <article class="journey-step">
-        <span class="journey-step__number">01</span>
-        <h3>User Data</h3>
-        <p>Enter vitals, lifestyle notes, and lab values with inline help and validation.</p>
-      </article>
-      <article class="journey-step">
-        <span class="journey-step__number">02</span>
-        <h3>Health Model</h3>
-        <p>Palette-tuned charts highlight anomalies using our multi-condition models.</p>
-      </article>
-      <article class="journey-step">
-        <span class="journey-step__number">03</span>
-        <h3>Review predictions</h3>
-        <p>Receive confidence ranges, risk tiers, and watchlists built from real outcomes.</p>
-      </article>
-      <article class="journey-step">
-        <span class="journey-step__number">04</span>
-        <h3>Show Dashbord</h3>
-        <p>Export summaries for your care team or follow the guided routines in-app.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-{% if 'user' not in session%}
-
-<section class="section cta">
-  <div class="container">
-    <div class="cta-card">
-      <div>
-        <p class="eyebrow">Ready to stay ahead?</p>
-        <h2>Keep every health prediction in one calming workspace.</h2>
-        <p>Log in to continue a screening or invite someone you care about to start theirs.</p>
-      </div>
-      <div class="cta-card__actions">
-        <a href="{{ url_for('login_bp.login') }}" class="btn btn-primary hero__cta">Sign in</a>
-        <a href="{{ url_for('register_bp.register') }}" class="btn hero__ghost">Create account</a>
+      <div class="hero-img">
+        <img src="{{ url_for('static',filename='img/doctor.png' ) }}" alt="hero-img">
       </div>
     </div>
   </div>
 </section>
 
-{%endif%}
 
-
-<!-- Footer -->
-<footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-between p-4" style="background-color: #6351ce">
-
-
-  </section>
-
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold" style="font-size: 2rem;">Quick Lab AI</h6>
-          <!-- <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" /> -->
-
-        </div>
-        <!-- Grid column -->
-
-       
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Useful links</h6>
-          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-          <p>
-            <a href="{{ url_for('login_bp.login' ) }}" class="text-white">Login</a>
-          </p>
-          <p>
-            <a href="{{ url_for('register_bp.register' ) }}" class="text-white">Registration</a>
-          </p>
-
-          <p>
-            <a href="/help_page" class="text-white">Help</a>
-          </p>
-        </div>
-        <!-- Grid column -->  
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Contact</h6>
-          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-
-          <p>ytsubhadip0099@gmail.com</p>
-          <p> <a href="https://www.linkedin.com/in/subhadip-bar-496a682a2/" class="text-white me-4 fa-2x"
-              target="_blank"><i class="fab fa-linkedin"></i></a></p>
-          <p> <a href="https://github.com/Biswajit704497/Quick_Lab.git" class="text-white me-4" target="_blank"><i
-                class="fab fa-github fa-2x"></i></a></p>
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-    Made with ❤️ and ☕ in India
-
+<section id="services" class="section modules-section">
+  <!-- Dynamic Blobs for Background -->
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
   </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+
+  <div class="container position-relative">
+    <div class="section-heading text-center mb-5">
+      <h2 class="section-heading__title">Smart Modules</h2>
+      <p class="section-heading__subtitle">Experience weightless AI intelligence.</p>
+    </div>
+
+    <div class="modules-grid">
+      <!-- Heart Module -->
+      <div class="module-wrapper">
+        <article class="module-card glass-morphism">
+          <div class="module-icon heart-glow">
+            <i class="bi bi-heart-pulse-fill"></i>
+          </div>
+          <div class="module-badge">Cardio</div>
+          <h3>Heart Analysis</h3>
+          <p>Real-time ECG metrics processed with zero-latency antigravity speed.</p>
+          <a href="{{ url_for('heart_bp.heart_attack') }}" class="module-btn">
+            Open Flow <i class="bi bi-arrow-right-short"></i>
+          </a>
+          <div class="module-glow"></div>
+        </article>
+      </div>
+
+      <!-- Diabetes Module -->
+      <div class="module-wrapper">
+        <article class="module-card glass-morphism">
+          <div class="module-icon glucose-glow">
+            <i class="bi bi-droplet-fill"></i>
+          </div>
+          <div class="module-badge">Metabolic</div>
+          <h3>Glucose Outlook</h3>
+          <p>Precision monitoring protocols designed for a weightless health journey.</p>
+          <a href="#" class="module-btn disabled">
+            Coming Soon
+          </a>
+          <div class="module-glow"></div>
+        </article>
+      </div>
+
+      <!-- Cancer Module -->
+      <div class="module-wrapper">
+        <article class="module-card glass-morphism">
+          <div class="module-icon cancer-glow">
+            <i class="bi bi-shield-shaded"></i>
+          </div>
+          <div class="module-badge">Oncology</div>
+          <h3>Cancer Screen</h3>
+          <p>Advanced cross-pattern detection for early life-saving intervention.</p>
+          <a href="#" class="module-btn disabled">
+            In Beta
+          </a>
+          <div class="module-glow"></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <script>
-  setTimeout(() => {
-    document.querySelectorAll('.flash-popup').forEach((popup) => {
-      popup.style.animation = "popup-hide 0.5s forwards";
-      setTimeout(() => popup.remove(), 500);
+  // Crazy 3D Glow & Magnetic Effect
+  document.querySelectorAll('.module-card').forEach(card => {
+    card.onmousemove = (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+
+      // Dynamic Tilt Physics
+      const rotateX = ((y / rect.height) - 0.5) * -20;
+      const rotateY = ((x / rect.width) - 0.5) * 20;
+      card.style.transform = `perspective(1000px) translateY(-15px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    card.onmouseleave = () => {
+      card.style.transform = `perspective(1000px) translateY(0) rotateX(0) rotateY(0)`;
+    }
+  });
+
+  // Staggered Entrance Animation
+  const moduleObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('module-reveal-active');
+        }, index * 200);
+        moduleObserver.unobserve(entry.target);
+      }
     });
-  }, 2000);
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.module-wrapper').forEach(el => {
+    el.classList.add('module-reveal-hidden');
+    moduleObserver.observe(el);
+  });
 </script>
+
+
+
+
+
+
+{% if 'user' not in session %}
+<section class="section py-5">
+  <div class="getstart_container">
+    <div class="cta-card p-5" style="background: var(--soft-gray); border-radius: 40px;">
+      <div class="text-content">
+        <h2 class="mb-3">Begin Your Journey</h2>
+        <p>Join the weightless revolution in health tracking with our advanced AI-powered health insights.</p>
+      </div>
+      
+      <div class="button-content">
+        <a href="{{ url_for('login_bp.login') }}" class="hero__cta">Sign In</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+{% endif %}
+<!-- Bold Brand Banner -->
+        <div class="brand-banner">
+            <h1 class="brand-banner-text">Quick Lab</h1>
+        </div>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <a href="#" class="footer-brand">Quick Lab</a>
+                        <p class="text-muted">Predicting a healthier future through weightless AI and precision
+                            monitoring.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/in/subhadip-bar-496a682a2/" target="_blank"><i
+                                    class="bi bi-linkedin"></i></a>
+                            <a href="https://github.com/Biswajit704497/Quick_Lab.git" target="_blank"><i
+                                    class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 col-lg-2 mb-4 ms-auto">
+                        <h6 class="footer-title">Platform</h6>
+                        <ul class="footer-links">
+                            <li><a href="{{ url_for('main_bp.home' ) }}">Home</a></li>
+                            <li><a href="#services">Models</a></li>
+                            <li><a href="/help_page">Support</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-md-3 col-lg-2 mb-4">
+                        <h6 class="footer-title">Account</h6>
+                        <ul class="footer-links">
+                            <li><a href="{{ url_for('login_bp.login' ) }}">Login</a></li>
+                            <li><a href="{{ url_for('register_bp.register' ) }}">Register</a></li>
+                            <li><a href="/profile">Profile</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 mb-4">
+                        <h6 class="footer-title">Contact</h6>
+                        <ul class="footer-links">
+                            <li><a href="mailto:ytsubhadip0099@gmail.com">ytsubhadip0099@gmail.com</a></li>
+                            <li class="text-muted">West Bengal, India</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Quick Lab Health AI. Built with ❤️ for a weightless world.</p>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
 {% endblock %}

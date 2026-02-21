@@ -11,4 +11,9 @@ def home():
 def help():
     return render_template('helppage.html')
 
+@main_bp.route("/about")
+def about_page():
+
+    return render_template('about.html')
+
 

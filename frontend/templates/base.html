@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}navbar{% endblock %}</title>
+    <title>{% block title %}Antigravity Health{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="/static/img/heart.png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='CSS/navbar.css') }}">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand health-brand" href="{{ url_for('main_bp.home') }}">
-                <i class="bi bi-heart-pulse me-2"></i>
-                Quick Lab AI
+                Quick Lab
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -34,7 +34,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('about_bp.about_page') }}#about">About</a>
+                        <a class="nav-link" href="{{ url_for('main_bp.about_page') }}">About</a>
                     </li>
 
                     {% if session.get('user') %}
@@ -57,25 +57,75 @@
                     {% endif %}
 
 
+                    <li class="nav-item ms-lg-3">
+                        <button id="theme-toggle" class="nav-link border-0 bg-transparent" title="Toggle Theme">
+                            <i class="bi bi-moon-stars" id="theme-icon"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    {% block content %}
-
-    {% endblock %}
-
-    <!-- Remove the container if you want to extend the Footer to full width. -->
 
 
+    <div class="main-scroll-container">
+        {% block content %}
+        {% endblock %}
 
-
-    <!-- Site footer -->
-
-    <!-- <footer></footer> -->
+       
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar');
+            const scrollContainer = document.querySelector('.main-scroll-container');
+
+            if (navbar && scrollContainer) {
+                scrollContainer.addEventListener('scroll', function () {
+                    if (scrollContainer.scrollTop > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // Notification Auto-hide Logic
+            const flashMessages = document.querySelectorAll('.flash-popup');
+            flashMessages.forEach(msg => {
+                setTimeout(() => {
+                    msg.style.animation = 'auth-slide-out 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards';
+                    setTimeout(() => msg.remove(), 600);
+                }, 4000);
+            });
+        });
+    </script>
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('bi-moon-stars', 'bi-sun-fill');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.classList.replace('bi-sun-fill', 'bi-moon-stars');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.replace('bi-moon-stars', 'bi-sun-fill');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
 
 </html>

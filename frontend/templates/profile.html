@@ -1,19 +1,65 @@
 {% extends 'base.html' %}
-{% block title %} Profile {% endblock %}
+{% block title %} Profile | Antigravity Health {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/profile.css') }}">
-<section>
-    <div class="profile-container">
-        <h2>User Profile</h2>
-        <div class="profile-details">
-            <p><strong>Full Name:</strong> {{ user.full_name }}</p>
-            <p><strong>Username:</strong> {{ user.username }}</p>
-            <p><strong>Password:</strong> {{ user.password }}</p>
-            <p><strong>Email:</strong> {{ user.email }}</p>
-            <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
-        </div>
-        <a href="{{ url_for('login_bp.logout') }}"
-            class="btn btn-hero btn-lg rounded-pill px-4 btn-outline-light mt-3">Logout</a>
+
+<div class="profile-section">
+    <!-- Animated Background Blobs -->
+    <div class="auth-blobs">
+        <div class="auth-blob blob-1"></div>
+        <div class="auth-blob blob-2"></div>
     </div>
-</section>
-{%endblock%}
+
+    <div class="container container-profile">
+        <div class="profile-card glass-morphism">
+            <div class="row g-0">
+                <!-- Left Side: Profile & ID -->
+                <div class="col-lg-4 col-md-5 profile-sidebar">
+                    <div class="profile-img-wrapper">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="profile-id-box">
+                        <span class="id-label">UNIQUE ID</span>
+                        <code
+                            class="id-value">AH-{{ user.username[:3].upper() }}{{ user.phone_number[-4:] if user.phone_number else '0000' }}</code>
+                    </div>
+                </div>
+
+                <!-- Right Side: Details -->
+                <div class="col-lg-8 col-md-7 profile-main">
+                    <div class="profile-header">
+                        <h2>Personal Workspace</h2>
+                        <p>Securely managing your health identity.</p>
+                    </div>
+
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <label>Full Name</label>
+                            <div class="detail-value">{{ user.full_name }}</div>
+                        </div>
+                        <div class="detail-item">
+                            <label>Username</label>
+                            <div class="detail-value">@{{ user.username }}</div>
+                        </div>
+                        <div class="detail-item">
+                            <label>Email Address</label>
+                            <div class="detail-value">{{ user.email }}</div>
+                        </div>
+                        <div class="detail-item">
+                            <label>Phone Number</label>
+                            <div class="detail-value">{{ user.phone_number }}</div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <a href="{{ url_for('login_bp.logout') }}" class="btn-logout">
+                            <span>Terminate Session</span>
+                            <i class="bi bi-box-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
