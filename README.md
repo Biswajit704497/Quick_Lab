@@ -1,9 +1,6 @@
 
 # Quick Lab — Know Your Health
 
-
-
-
 <!-- Project tech badges -->
 [![](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge)](https://www.python.org/) [![](https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white&style=for-the-badge)](https://flask.palletsprojects.com/) [![](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white&style=for-the-badge)](https://scikit-learn.org/)
 
@@ -29,23 +26,9 @@ Live demo: https://quick-lab.onrender.com/
 - **Diabetes Prediction** — Predicts diabetes likelihood using a trained diabetes model.
 - **Cancer Prediction** — Predicts cancer risk using a pre-trained `cancer.pkl` model placed in the `models` folder.
 - **Chatbot Helper** — Simple chat interface for guidance and information.
-- **User Auth (basic)** — Register / Login pages to manage simple user profiles.
-- **Clean responsive UI** — Templates in the `templates/` folder and styles in `static/CSS/`.
 
 ---
 
-## **Project Structure (high level)**
-- `app.py` — Flask app entrypoint and app factory.
-- `routes/` — Flask route handlers (e.g. `heart_routes.py`, `cancer_routes.py`, `diabetes_routes.py`).
-- `models/` — Saved ML models and helper code. Example files:
-	- `cancer.pkl` — cancer prediction model (loaded by `models/cancer_model.py`).
-	- `diabetes.joblib` — diabetes model.
-	- `heart_atack_model.pkl` — heart model.
-- `dataset/` — CSV datasets used for training and reference (not required for running the site).
-- `static/` — CSS, images and front-end assets.
-- `templates/` — HTML templates for pages (home, BMI, diabetes, heart, cancer, chatbot, login, profile).
-
----
 
 ## **How the ML model is loaded**
 The app loads the cancer model from the `models` directory. Example code (already used in `models/cancer_model.py`):
@@ -64,8 +47,9 @@ This ensures the code finds `cancer.pkl` regardless of the working directory whe
 ---
 
 ## **Tech stack & libraries**
-- Python 3.10+ (tested in local venv)
-- Flask — web framework
+- Python 3.12 (tested in local venv)
+- Flask — web framewor
+- Fast API - Backend ML model API
 - scikit-learn, pandas, numpy — ML + data handling
 - joblib — model serialization
 
