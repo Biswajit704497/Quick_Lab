@@ -53,33 +53,10 @@ This ensures the code finds `cancer.pkl` regardless of the working directory whe
 - scikit-learn, pandas, numpy — ML + data handling
 - joblib — model serialization
 
-See `requirements.txt` for full dependency list.
-
----
-
-## **Local setup & run**
-1. Create and activate a Python virtual environment (Windows example):
-
-```powershell
-python -m venv myenv
-.\myenv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-2. Run the app locally:
-
-```powershell
-python app.py
-# or set FLASK_APP and use flask run
-```
-
 3. Open `http://127.0.0.1:5000` in your browser.
 
 ---
 
-## **Contributing / Next steps**
-- Add tests for prediction endpoints.
-- Improve model explainability (show feature importance).
 - Add Dockerfile for consistent deployment.
 
 ---
