@@ -1,15 +1,15 @@
 from flask import Flask
-from routes.main_routes import main_bp
+from frontend.routes.main_routes import main_bp
 
-from routes.heart_routes import heart_bp
-from routes.login_routes import login_bp
-from routes.register_route import register_bp
+from frontend.routes.heart_routes import heart_bp
+from frontend.routes.login_routes import login_bp
+from frontend.routes.register_route import register_bp
 
-from routes.user_profile import profile_bp
-from routes.google_auth import google_auth
+from frontend.routes.user_profile import profile_bp
+from frontend.routes.google_auth import google_auth
 
-from routes.chatbot_route import chatbot_bp
-from routes.dashbord_routes import dashbord_bp
+from frontend.routes.chatbot_route import chatbot_bp
+from frontend.routes.dashbord_routes import dashbord_bp
 
 import os
 from flask_cors import CORS

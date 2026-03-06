@@ -1,6 +1,6 @@
 from flask import Blueprint, session, redirect, url_for,flash
 from authlib.integrations.flask_client import OAuth
-from db_config import mysql
+from frontend.db_config import mysql
 import os
 
 

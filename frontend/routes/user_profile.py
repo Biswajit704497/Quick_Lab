@@ -1,7 +1,7 @@
 from flask import Blueprint,render_template,url_for,flash, redirect,session
 import MySQLdb.cursors
 profile_bp = Blueprint('profile_bp', __name__)
-from db_config import mysql
+from frontend.db_config import mysql
 
 @profile_bp.route('/profile')
 def profile():

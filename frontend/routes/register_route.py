@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, session, redirect, url_for, request, flash
 register_bp = Blueprint('register_bp',__name__)
-from db_config import mysql
+from frontend.db_config import mysql
 from module import user_id
 from datetime import date
 

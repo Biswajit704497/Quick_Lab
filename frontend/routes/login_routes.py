@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, session, redirect,url_for, request, flash
-from db_config import mysql
+from frontend.db_config import mysql
 login_bp = Blueprint('login_bp',__name__)
 
 @login_bp.route('/login', methods=['GET','POST'])
