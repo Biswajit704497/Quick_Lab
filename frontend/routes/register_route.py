@@ -1,6 +1,9 @@
 from flask import Blueprint, render_template, session, redirect, url_for, request, flash
 register_bp = Blueprint('register_bp',__name__)
 from db_config import mysql
+from module import user_id
+from datetime import date
+
 @register_bp.route('/register',methods=['GET','POST'])
 def register():
 
@@ -9,26 +12,34 @@ def register():
         return redirect(url_for('main_bp.home'))
 
     if request.method == 'POST':
+
         email = request.form.get("email")
         phone_number = request.form.get("phone_number")
         full_name = request.form.get("full_name")
-        username = request.form.get("username")
-        password = request.form.get("password")
+        password = request.form.get("password") 
+        confirm_password = request.form.get("confirmpassword")
+        created_at = date.today()
+        user_ID = user_id.generate_user_id()
+
+        if ( confirm_password!=password ):
+            return redirect("/register")
 
         #database connection
         user_data = (
-            email,
-            phone_number,
+            user_ID,
             full_name,
-            username,
-            password
+            phone_number,
+            password,   
+            created_at,  
+            email
         )
-        
+        print(user_data)
         sql_query = """
-            INSERT INTO userlogin(email,phone_number,full_name,username,password)
-            VALUES(%s, %s, %s , %s , %s )"""
+            INSERT INTO userlogin(userID,userFullName,userPHNumber,userPassword,userJoinDate, userEmail)
+            VALUES(%s, %s, %s , %s , %s, %s )"""
         cur = None
         conn = None
+
         try:
             conn = mysql.connect
             cur = conn.cursor()
@@ -36,6 +47,7 @@ def register():
             conn.commit()
             flash("Registration Successfully", "success")
             return redirect(url_for("login_bp.login"))
+            
         except Exception :
             flash("database connection probleam","warning")
        

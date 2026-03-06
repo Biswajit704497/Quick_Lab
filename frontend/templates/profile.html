@@ -20,8 +20,8 @@
                     </div>
                     <div class="profile-id-box">
                         <span class="id-label">UNIQUE ID</span>
-                        <code
-                            class="id-value">AH-{{ user.username[:3].upper() }}{{ user.phone_number[-4:] if user.phone_number else '0000' }}</code>
+                      
+                            
                     </div>
                 </div>
 
@@ -35,19 +35,20 @@
                     <div class="details-grid">
                         <div class="detail-item">
                             <label>Full Name</label>
-                            <div class="detail-value">{{ user.full_name }}</div>
+                            <div class="detail-value">{{ user.userFullName }}</div>
                         </div>
-                        <div class="detail-item">
-                            <label>Username</label>
-                            <div class="detail-value">@{{ user.username }}</div>
-                        </div>
+                       
                         <div class="detail-item">
                             <label>Email Address</label>
-                            <div class="detail-value">{{ user.email }}</div>
+                            <div class="detail-value">{{ user.userEmail }}</div>
                         </div>
                         <div class="detail-item">
                             <label>Phone Number</label>
-                            <div class="detail-value">{{ user.phone_number }}</div>
+                            <div class="detail-value">{{ user.userPHNumber }}</div>
+                        </div>
+                         <div class="detail-item">
+                            <label>Join date</label>
+                            <div class="detail-value">{{ user.userJoinDate }}</div>
                         </div>
                     </div>
 

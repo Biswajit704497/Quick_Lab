@@ -16,12 +16,12 @@
     <div class="auth-card">
       <div class="auth-header">
         <h2>Welcome Back</h2>
-        <p>Zero-friction access to your health metrics.</p>
+        
       </div>
 
       <form method="post" action="/login">
         <div class="form-group">
-          <input type="text" class="form-input" placeholder="Username" name="username" required>
+          <input type="email" class="form-input" placeholder="User email" name="useremail" required>
         </div>
 
         <div class="form-group">
@@ -34,14 +34,14 @@
         </button>
       </form>
 
-      <div class="auth-divider">
+      <!-- <div class="auth-divider">
         <span>OR</span>
       </div>
 
       <a href="{{ url_for('google_auth.google_login' ) }}" class="google-btn">
         <i class="bi bi-google"></i>
         <span>Continue with Google</span>
-      </a>
+      </a> -->
 
       <div class="auth-footer">
         Don't have an account? <a href="{{ url_for('register_bp.register' ) }}">Create One</a>

@@ -10,20 +10,20 @@ def login():
         return redirect(url_for('main_bp.home'))
 
     if request.method == 'POST':
-        username = request.form.get('username')
+        useremail = request.form.get('useremail')
         password = request.form.get('password')
 
         cur = None
         try:
 
             cur = mysql.connect.cursor()
-            cur.execute("SELECT * FROM userlogin WHERE username=%s AND password=%s", (username, password))
+            cur.execute("SELECT * FROM userlogin WHERE userEmail=%s AND userPassword=%s", (useremail, password))
             user = cur.fetchone()
             
             # print("database reply",user)
             
             if user:
-                session["user"] = username
+                session["user"] = useremail
                 flash("Login successful!", "success")
                 return redirect(url_for('main_bp.home'))
             else:
