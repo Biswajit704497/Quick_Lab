@@ -16,7 +16,7 @@ from flask_cors import CORS
 
 
 
-from db_config import init_mysql
+from frontend.db_config import init_mysql
 
 app = Flask(__name__,template_folder="templates", static_folder="static")
 app.secret_key = "asasacddf1f2d15f4d5f5d4f55454212143@d4s5d4as" 
