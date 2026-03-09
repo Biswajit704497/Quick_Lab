@@ -6,136 +6,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}title{% endblock %}</title>
     <link rel="icon" type="image/svg+xml" href="static/img/capsules-solid-full.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='CSS/navbar.css') }}">
+
+    <!-- Immediate Theme Detection to prevent white flash -->
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.style.backgroundColor = theme === 'dark' ? '#0a0a0a' : '#ffffff';
+        })();
+    </script>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand health-brand" href="{{ url_for('main_bp.home') }}">
+    <nav class="navbar fixed-top">
+        <div class="container container-nav">
+            <a class="navbar-brand" href="{{ url_for('main_bp.home') }}">
                 Quick Lab
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- navbar manu -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('main_bp.home') }}#home">Home</a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-
-                    {% if session.get('user') %}
-                    <!-- User is logged in -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/profile">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('login_bp.logout') }}">Logout</a>
-                    </li>
-
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="{{ url_for('main_bp.home') }}#home" class="nav-link">Home</a></li>
+                    <li><a href="{{ url_for('main_bp.about_page') }}" class="nav-link">About</a></li>
+                    <li><a href="{{ url_for('main_bp.team_page') }}" class="nav-link">Team</a></li>
+                    <li><a href="{{ url_for('main_bp.contact_page') }}" class="nav-link">Contact</a></li>
+                    {% if 'user' in session %}
+                    <li class="mobile-only"><a href="{{ url_for('dashbord_bp.dashbord') }}"
+                            class="nav-link">Dashboard</a></li>
+                    <li class="mobile-only"><a href="{{ url_for('login_bp.logout') }}" class="nav-link">Logout</a></li>
                     {% else %}
-                    <!-- User is not logged in -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
+                    <li class="mobile-only"><a href="{{ url_for('login_bp.login') }}" class="nav-link">Sign In</a></li>
+                    <li class="mobile-only"><a href="{{ url_for('register_bp.register') }}" class="nav-link">Sign Up</a>
                     </li>
                     {% endif %}
-
-
-                    <li class="nav-item ms-lg-3">
-                        <button id="theme-toggle" class="nav-link border-0 bg-transparent" title="Toggle Theme">
-                            <i class="bi bi-moon-stars" id="theme-icon"></i>
-                        </button>
-                    </li>
                 </ul>
+            </div>
+
+            <div class="nav-actions">
+                {% if 'user' in session %}
+                <a href="{{ url_for('dashbord_bp.dashbord') }}" class="dashboard-btn desktop-only">Dashboard</a>
+                <a href="{{ url_for('login_bp.logout') }}" class="logout-btn desktop-only">Logout</a>
+                {% else %}
+                <a href="{{ url_for('login_bp.login') }}" class="login-btn desktop-only">Sign In</a>
+                <a href="{{ url_for('register_bp.register') }}" class="signup-btn desktop-only">Sign Up</a>
+                {% endif %}
+                <button class="mobile-toggle" aria-label="Toggle Menu">
+                    <i class="bi bi-list"></i>
+                </button>
             </div>
         </div>
     </nav>
 
 
 
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-container">
+        {% for category, message in messages %}
+        <div class="flash-popup {{ category }}">
+            <i
+                class="bi {% if category == 'success' %}bi-check-circle{% elif category == 'error' %}bi-exclamation-octagon{% else %}bi-info-circle{% endif %}"></i>
+            <span>{{ message }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
     <div class="main-scroll-container">
         {% block content %}
         {% endblock %}
 
-       
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Navbar Scroll Effect
             const navbar = document.querySelector('.navbar');
             const scrollContainer = document.querySelector('.main-scroll-container');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
 
             if (navbar && scrollContainer) {
-                let scrollTimeout;
                 let lastScrollPos = 0;
-                
-                scrollContainer.addEventListener('scroll', function () {
-                    clearTimeout(scrollTimeout);
+                scrollContainer.addEventListener('scroll', () => {
                     const scrollTop = scrollContainer.scrollTop;
-                    
-                    // Only update if we've crossed the 50px threshold
-                    if ((lastScrollPos <= 50 && scrollTop > 50) || (lastScrollPos > 50 && scrollTop <= 50)) {
-                        if (scrollTop > 50) {
-                            navbar.classList.add('scrolled');
-                        } else {
-                            navbar.classList.remove('scrolled');
-                        }
-                        lastScrollPos = scrollTop;
-                    } else {
-                        lastScrollPos = scrollTop;
-                    }
+                    if (scrollTop > 50) navbar.classList.add('scrolled');
+                    else navbar.classList.remove('scrolled');
                 }, { passive: true });
             }
 
-            // Notification Auto-hide Logic
-            const flashMessages = document.querySelectorAll('.flash-popup');
-            flashMessages.forEach(msg => {
+            // Mobile Menu Toggle
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    const isActive = navMenu.classList.toggle('active');
+                    const icon = mobileToggle.querySelector('i');
+                    if (icon) icon.className = isActive ? 'bi bi-x' : 'bi bi-list';
+                });
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        const icon = mobileToggle.querySelector('i');
+                        if (icon) icon.className = 'bi bi-list';
+                    });
+                });
+            }
+
+            // Notification Auto-hide
+            document.querySelectorAll('.flash-popup').forEach(msg => {
                 setTimeout(() => {
                     msg.style.animation = 'auth-slide-out 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards';
                     setTimeout(() => msg.remove(), 600);
                 }, 4000);
             });
-        });
-    </script>
-    <script>
-        // Theme Management
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const currentTheme = localStorage.getItem('theme') || 'light';
 
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeIcon.classList.replace('bi-moon-stars', 'bi-sun-fill');
-        }
+            // Theme Toggle Logic (UI Update only, detection is in head)
+            const themeToggle = document.getElementById('theme-toggle-unique');
+            const themeIcon = document.getElementById('theme-icon');
 
-        themeToggle.addEventListener('click', () => {
-            let theme = document.documentElement.getAttribute('data-theme');
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                themeIcon.classList.replace('bi-sun-fill', 'bi-moon-stars');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeIcon.classList.replace('bi-moon-stars', 'bi-sun-fill');
-                localStorage.setItem('theme', 'dark');
+            if (themeIcon) {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                themeIcon.className = currentTheme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars';
             }
+
+            themeToggle?.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                document.documentElement.setAttribute('data-theme', newTheme);
+                document.documentElement.style.backgroundColor = newTheme === 'dark' ? '#0a0a0a' : '#ffffff';
+                localStorage.setItem('theme', newTheme);
+
+                if (themeIcon) {
+                    themeIcon.className = newTheme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars';
+                }
+            });
         });
     </script>
 </body>

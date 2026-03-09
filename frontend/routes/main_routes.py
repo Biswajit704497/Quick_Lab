@@ -16,4 +16,10 @@ def about_page():
 
     return render_template('about.html')
 
+@main_bp.route("/team")
+def team_page():
+    return render_template('team.html')
 
+@main_bp.route("/contact")
+def contact_page():
+    return render_template('contact.html')

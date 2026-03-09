@@ -7,169 +7,200 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
 
 
-<section id="home" class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero__body floating-element">
-        <h1 class="hero__title">
-          Quick Lab<span> &nbsp; <br>AI Predictor</span>
-        </h1>
-        <p class="hero__subtitle mb-5">
-          Experience the future of health with our zero-friction, predictive models. Clean, fast, and weightless.
-        </p>
-        <div class="hero__actions">
-          <a href="#" class="hero__cta">
-            Open Dashbord
-          </a>
-          <a href="#services" class="hero__ghost">
-            Open Quick AI
-          </a>
-        </div>
-      </div>
-      <div class="hero-img">
-        <img src="{{ url_for('static',filename='img/doctor.png' ) }}" alt="hero-img">
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="services" class="section modules-section">
-  <!-- Dynamic Blobs for Background -->
+<section id="home" class="hero reveal">
   <div class="blob-container">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
   </div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero__body">
+        <h1 class="hero__title">
+          AI-Powered Models <span>for Predictive Health</span>
+        </h1>
+        <p class="hero__subtitle mb-5">
+          Leverage state-of-the-art health sector models to predict and monitor your well-being with unprecedented
+          precision.
+        </p>
+        <div class="hero__actions">
+          <a href="/login" class="hero__cta">
+            Start Predicting Free <i class="bi bi-arrow-right-short"></i>
+          </a>
+          <a href="#services" class="hero__ghost">
+            View Modules
+          </a>
+        </div>
 
-  <div class="container position-relative">
+        <div class="hero__metrics">
+          <div class="metric-item">
+            <span class="metric-value">3+</span>
+            <span class="metric-label">Health Models</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-value">99.9%</span>
+            <span class="metric-label">Prediction Accuracy</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-value">Secure</span>
+            <span class="metric-label">Encrypted Data</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-steps-container">
+        <div class="hero-steps">
+          <div class="step-card step-blue active">
+            <div class="step-icon"><i class="bi bi-link-45deg"></i></div>
+            <div class="step-content">
+              <div class="step-title">1. Connect Vital Signs</div>
+              <div class="step-desc">Input or sync your health data securely.</div>
+            </div>
+            <div class="step-number">+100</div>
+          </div>
+
+          <div class="step-card step-yellow">
+            <div class="step-icon"><i class="bi bi-cpu"></i></div>
+            <div class="step-content">
+              <div class="step-title">2. Choose Health Model</div>
+              <div class="step-desc">Select Cardio, Glucose, or Oncology.</div>
+            </div>
+          </div>
+
+          <div class="step-card step-red">
+            <div class="step-icon"><i class="bi bi-activity"></i></div>
+            <div class="step-content">
+              <div class="step-title">3. AI Analysis Running</div>
+              <div class="step-desc">Processing via health sector neural engine.</div>
+            </div>
+            <div class="step-number">-2</div>
+          </div>
+
+          <div class="step-card step-green">
+            <div class="step-icon"><i class="bi bi-check-circle-fill"></i></div>
+            <div class="step-content">
+              <div class="step-title">4. Result Delivered</div>
+              <div class="step-desc">Download your AI-generated health report.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="services" class="section modules-section reveal">
+  <div class="container">
     <div class="section-heading text-center mb-5">
-      <h2 class="section-heading__title">Smart Modules</h2>
-      <p class="section-heading__subtitle">Experience weightless AI intelligence.</p>
+      <h2 class="section-heading__title">Smart Models for Health Oversight</h2>
+      <p class="section-heading__subtitle">A complete suite of AI-powered models for heart, glucose, and oncology
+        monitoring.</p>
     </div>
 
-    <div class="modules-grid">
+    <div class="modules-grid-mini">
       <!-- Heart Module -->
-      <div class="module-wrapper">
-        <article class="module-card glass-morphism">
-          <div class="module-icon heart-glow">
-            <i class="bi bi-heart-pulse-fill"></i>
-          </div>
-          <div class="module-badge">Cardio</div>
-          <h3>Check Your Heart</h3>
-          <p>Real-time ECG metrics processed with zero-latency antigravity speed.</p>
-          <a href="{{ url_for('heart_bp.heart_attack') }}" class="module-btn">
-            Open Flow <i class="bi bi-arrow-right-short"></i>
-          </a>
-          <div class="module-glow"></div>
-        </article>
+      <div class="mini-card card-heart">
+        <div class="mini-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+        <h3>Cardio Predictor</h3>
+        <p>Real-time ECG metrics processed with health sector neural engine.</p>
+        <a href="{{ url_for('heart_bp.heart_attack') }}" class="mini-link">Try it <i
+            class="bi bi-arrow-right-short"></i></a>
       </div>
 
       <!-- Diabetes Module -->
-      <div class="module-wrapper">
-        <article class="module-card glass-morphism">
-          <div class="module-icon glucose-glow">
-            <i class="bi bi-droplet-fill"></i>
-          </div>
-          <div class="module-badge">Metabolic</div>
-          <h3>Glucose Outlook</h3>
-          <p>Precision monitoring protocols designed for a weightless health journey.</p>
-          <a href="#" class="module-btn disabled">
-            Coming Soon
-          </a>
-          <div class="module-glow"></div>
-        </article>
+      <div class="mini-card card-glucose">
+        <div class="mini-icon"><i class="bi bi-droplet-fill"></i></div>
+        <h3>Glucose Outlook</h3>
+        <p>Precision monitoring protocols designed for a weightless health journey.</p>
+        <a href="#" class="mini-link disabled">Try it <i class="bi bi-arrow-right-short"></i></a>
       </div>
 
       <!-- Cancer Module -->
-      <div class="module-wrapper">
-        <article class="module-card glass-morphism">
-          <div class="module-icon cancer-glow">
-            <i class="bi bi-shield-shaded"></i>
-          </div>
-          <div class="module-badge">Oncology</div>
-          <h3>Cancer Screen</h3>
-          <p>Advanced cross-pattern detection for early life-saving intervention.</p>
-          <a href="#" class="module-btn disabled">
-            In Beta
-          </a>
-          <div class="module-glow"></div>
-        </article>
+      <div class="mini-card card-cancer">
+        <div class="mini-icon"><i class="bi bi-shield-shaded"></i></div>
+        <h3>Oncology Screen</h3>
+        <p>Advanced cross-pattern detection for early life-saving intervention.</p>
+        <a href="#" class="mini-link disabled">Try it <i class="bi bi-arrow-right-short"></i></a>
+      </div>
+
+      <!-- Vital Module (Extra to match image density) -->
+      <div class="mini-card card-vitals">
+        <div class="mini-icon"><i class="bi bi-activity"></i></div>
+        <h3>Vital Analyzer</h3>
+        <p>Comprehensive analysis of blood pressure and respiration rates.</p>
+        <a href="#" class="mini-link disabled">Try it <i class="bi bi-arrow-right-short"></i></a>
       </div>
     </div>
   </div>
 </section>
-{% if 'user' not in session %}
-<section class="section py-5">
-  <div class="getstart_container">
-    <div class="cta-card p-5" style="background: var(--soft-gray); border-radius: 40px;">
-      <div class="text-content">
-        <h2 class="mb-3">Begin Your Journey</h2>
-        <p>Join the weightless revolution in health tracking with our advanced AI-powered health insights.</p>
-      </div>
-      
-      <div class="button-content">
-        <a href="{{ url_for('login_bp.login') }}" class="hero__cta">Get Start</a>
-      </div>
+<section class="cta-banner reveal">
+  <div class="container text-center">
+    <h2 class="cta-banner__title">Start Monitoring with Quick Lab</h2>
+    <p class="cta-banner__subtitle">Sign up for free and explore our suite of AI-powered health monitoring tools.</p>
+    <div class="cta-banner__actions">
+      <a href="/register" class="hero__cta">Get Started Free <i class="bi bi-arrow-right-short"></i></a>
+      <a href="{{ url_for('main_bp.about_page') }}" class="hero__ghost">About Us</a>
     </div>
   </div>
 </section>
- 
-{% endif %}
-<!-- Bold Brand Banner -->
-        <div class="brand-banner">
-            <h1 class="brand-banner-text">Quick Lab</h1>
+
+
+<footer class="premium-footer">
+  <div class="container footer-container">
+    <div class="footer-top">
+      <div class="footer-brand-box">
+        <a href="#" class="footer-logo">Quick Lab</a>
+        <p class="footer-tagline">Leveraging state-of-the-art AI for a healthier future. Predict, monitor, and thrive.
+        </p>
+        <div class="social-links-new">
+          <a href="https://www.linkedin.com/in/subhadip-bar-496a682a2/" target="_blank"><i
+              class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/Biswajit704497/Quick_Lab.git" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4 class="footer-head">Platform</h4>
+          <ul class="footer-list">
+            <li><a href="{{ url_for('main_bp.home') }}">Home</a></li>
+            <li><a href="#services">Health Models</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+          </ul>
         </div>
 
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 mb-4">
-                        <a href="#" class="footer-brand">Quick Lab</a>
-                        <p class="text-muted">Predicting a healthier future through weightless AI and precision
-                            monitoring.
-                        </p>
-                        <div class="footer-social">
-                            <a href="https://www.linkedin.com/in/subhadip-bar-496a682a2/" target="_blank"><i
-                                    class="bi bi-linkedin"></i></a>
-                            <a href="https://github.com/Biswajit704497/Quick_Lab.git" target="_blank"><i
-                                    class="bi bi-github"></i></a>
-                        </div>
-                    </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-4 ms-auto">
-                        <h6 class="footer-title">Platform</h6>
-                        <ul class="footer-links">
-                            <li><a href="{{ url_for('main_bp.home' ) }}">Home</a></li>
-                            <li><a href="#services">Models</a></li>
-                            <li><a href="">Support</a></li>
-                        </ul>
-                    </div>
+        <div class="footer-col">
+          <h4 class="footer-head">Company</h4>
+          <ul class="footer-list">
+            <li><a href="{{ url_for('main_bp.about_page') }}">About Us</a></li>
+            <li><a href="{{ url_for('main_bp.team_page') }}">Our Team</a></li>
+            <li><a href="{{ url_for('main_bp.contact_page') }}">Contact</a></li>
+          </ul>
+        </div>
 
-                    <div class="col-6 col-md-3 col-lg-2 mb-4">
-                        <h6 class="footer-title">Account</h6>
-                        <ul class="footer-links">
-                            <li><a href="{{ url_for('login_bp.login' ) }}">Login</a></li>
-                            <li><a href="{{ url_for('register_bp.register' ) }}">Register</a></li>
-                           
-                        </ul>
-                    </div>
+        <div class="footer-col">
+          <h4 class="footer-head">Legal</h4>
+          <ul class="footer-list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <h6 class="footer-title">Contact</h6>
-                        <ul class="footer-links">
-                            <li><a href="mailto:ytsubhadip0099@gmail.com">ytsubhadip0099@gmail.com</a></li>
-                            <li class="text-muted">West Bengal, India</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+
+  </div>
+</footer>
 
 
 
 <Script>
-// Crazy 3D Glow & Magnetic Effect
+  // Crazy 3D Glow & Magnetic Effect
   document.querySelectorAll('.module-card').forEach(card => {
     card.onmousemove = (e) => {
       const rect = card.getBoundingClientRect();
@@ -204,6 +235,20 @@
   document.querySelectorAll('.module-wrapper').forEach(el => {
     el.classList.add('module-reveal-hidden');
     moduleObserver.observe(el);
+  });
+
+  // General Scroll Reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        revealObserver.unobserve(entry.target); // Only animate once
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    revealObserver.observe(el);
   });
 
 </Script>

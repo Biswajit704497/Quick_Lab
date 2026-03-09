@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block title %} Contact Us | Quick Lab {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/login_page.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
+
+<div class="auth-wrapper" style="padding-top: 100px; min-height: auto;">
+    <div class="background-dots"></div>
+
+    <div class="container container-nav">
+        <div class="row align-items-start gy-5">
+            <!-- Contact Info -->
+            <div class="col-lg-5">
+                <div class="reveal active">
+                    <h1 class="hero__title" style="font-size: 2.5rem;">Let's <span>talk</span></h1>
+                    <p class="hero__subtitle mb-5">Have questions about our AI models or need technical support? We're
+                        here to help.</p>
+
+                    <div class="contact-info-list">
+                        <div class="contact-item d-flex gap-3 mb-4">
+                            <div class="mini-icon"
+                                style="background: rgba(66, 133, 244, 0.1); color: #4285f4; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-1" style="color: var(--text-dark); font-size: 1.1rem;">Email Us</h4>
+                                <p style="color: var(--text-muted); margin: 0;">support@quicklab.ai</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item d-flex gap-3 mb-4">
+                            <div class="mini-icon"
+                                style="background: rgba(13, 242, 201, 0.1); color: #0df2c9; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-1" style="color: var(--text-dark); font-size: 1.1rem;">Our Office</h4>
+                                <p style="color: var(--text-muted); margin: 0;">Innovation Hub, Silicon Valley, CA</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item d-flex gap-3">
+                            <div class="mini-icon"
+                                style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <div>
+                                <h4 class="mb-1" style="color: var(--text-dark); font-size: 1.1rem;">24/7 Support</h4>
+                                <p style="color: var(--text-muted); margin: 0;">Response time within 2 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="auth-card" style="width: 100%; max-width: 600px; margin: 0 auto;">
+                    <div class="auth-header">
+                        <h2>Send a Message</h2>
+                        <p>Fill out the form below and we'll get back to you.</p>
+                    </div>
+
+                    <form action="#" method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <div class="input-with-icon">
+                                        <div class="input-wrapper">
+                                            <i class="bi bi-person"></i>
+                                            <input type="text" placeholder="John" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <div class="input-with-icon">
+                                        <div class="input-wrapper">
+                                            <i class="bi bi-person"></i>
+                                            <input type="text" placeholder="Doe" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <div class="input-with-icon">
+                                <div class="input-wrapper">
+                                    <i class="bi bi-envelope"></i>
+                                    <input type="email" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>How can we help?</label>
+                            <div class="input-with-icon">
+                                <div class="input-wrapper">
+                                    <textarea placeholder="Tell us more about your inquiry..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn" style="margin-top: 1rem;">
+                            Send Message <i class="bi bi-send-fill ms-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team Redirect -->
+<section class="section reveal" style="padding: 100px 0;">
+    <div class="container footer-container">
+        <div class="cta-banner-glass" style="background: rgba(255, 255, 255, 0.02);">
+            <div class="cta-content">
+                <h2>Looking for the team?</h2>
+                <p>Check out the people behind the mission to revolutionize health.</p>
+            </div>
+            <div class="cta-action">
+                <a href="{{ url_for('main_bp.team_page') }}" class="hero__ghost">View Team</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

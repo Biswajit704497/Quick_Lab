@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% block title %} Our Team | Quick Lab {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
+
+<!-- Team Hero Section -->
+<section class="section team-hero reveal">
+    <div class="container text-center">
+        <div class="section-heading">
+            <h1 class="hero__title">Building the future <span>together</span></h1>
+            <p class="hero__subtitle mx-auto">We're a dedicated group of experts passionate about leveraging AI to
+                revolutionize personal health monitoring.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Team Grid Section -->
+<section id="team" class="section team-section reveal active">
+    <div class="container">
+        <div class="team-grid">
+            <!-- Member 1 -->
+            <div class="team-card">
+                <div class="team-image-box">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQEVOa2LhS_oXA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718222384799?e=1746662400&v=beta&t=N11e_66C5vMvMvMvMvMvMvMvMvMvMvMvMvMvMvMvMvM"
+                        alt="Karim Khan">
+                </div>
+                <div class="team-info">
+                    <div class="team-header">
+                        <h3>Karim Khan</h3>
+                        <a href="#" class="linkedin-link"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    <span class="team-role">CTO & Founder</span>
+                    <p class="team-bio">Leads the technical vision, infrastructure architecture, and product execution.
+                        Builds and manages the entire AI platform from hardware to high-level API.</p>
+                </div>
+            </div>
+
+            <!-- Member 2 (Open Role) -->
+            <div class="team-card open-role">
+                <div class="team-image-box placeholder">
+                    <i class="bi bi-question-lg"></i>
+                </div>
+                <div class="team-info">
+                    <div class="team-header">
+                        <h3>Backend Engineer</h3>
+                        <span class="status-badge">Hiring</span>
+                    </div>
+                    <span class="team-role">Open Position</span>
+                    <p class="team-bio">Build and maintain core API infrastructure, payment systems, and job
+                        orchestration pipelines that power every AI execution on the platform.</p>
+                </div>
+            </div>
+
+            <!-- Member 3 (Open Role) -->
+            <div class="team-card open-role">
+                <div class="team-image-box placeholder">
+                    <i class="bi bi-question-lg"></i>
+                </div>
+                <div class="team-info">
+                    <div class="team-header">
+                        <h3>Frontend Engineer</h3>
+                        <span class="status-badge">Hiring</span>
+                    </div>
+                    <span class="team-role">Open Position</span>
+                    <p class="team-bio">Design and implement the user-facing dashboard, creative tools UI, and marketing
+                        pages with a focus on world-class performance and usability.</p>
+                </div>
+            </div>
+
+            <!-- Member 4 (Open Role) -->
+            <div class="team-card open-role">
+                <div class="team-image-box placeholder">
+                    <i class="bi bi-question-lg"></i>
+                </div>
+                <div class="team-info">
+                    <div class="team-header">
+                        <h3>AI Researcher</h3>
+                        <span class="status-badge">Hiring</span>
+                    </div>
+                    <span class="team-role">Open Position</span>
+                    <p class="team-bio">Train and optimize state-of-the-art health models. Focus on accuracy,
+                        low-latency inference, and medical data precision for real-time tracking.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="section cta-final reveal">
+    <div class="container">
+        <div class="cta-banner-glass">
+            <div class="cta-content">
+                <h2>Start Monitoring for Free</h2>
+                <p>Join the future of AI-powered health monitoring and get real-time insights today.</p>
+            </div>
+            <div class="cta-action">
+                <a href="{{ url_for('register_bp.register') }}" class="hero__cta">Get Started Now <i
+                        class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Premium Footer -->
+<footer class="premium-footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand-box">
+                <a href="#" class="footer-logo">Quick Lab</a>
+                <p class="footer-tagline">Empowering health monitoring through the lens of artificial intelligence and
+                    machine learning.</p>
+                <div class="social-links-new">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4 class="footer-head">Platform</h4>
+                    <ul class="footer-list">
+                        <li><a href="#">AI Models</a></li>
+                        <li><a href="#">Health Suite</a></li>
+                        <li><a href="#">API Docs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-head">Company</h4>
+                    <ul class="footer-list">
+                        <li><a href="{{ url_for('main_bp.about_page') }}">About Us</a></li>
+                        <li><a href="{{ url_for('main_bp.team_page') }}">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-head">Support</h4>
+                    <ul class="footer-list">
+                        <li><a href="{{ url_for('main_bp.contact_page') }}">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-new">
+            <p>&copy; 2026 Quick Lab. All rights reserved.</p>
+            <div class="footer-status">
+                <div class="status-dot"></div>
+                <span>All Systems Operational</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .team-hero {
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const reveals = document.querySelectorAll('.reveal');
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        reveals.forEach(reveal => observer.observe(reveal));
+    });
+</script>
+
+{% endblock %}
