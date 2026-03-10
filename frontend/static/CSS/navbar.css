@@ -73,7 +73,7 @@ body {
 }
 
 .navbar-brand:hover {
-    color: var(--text-white);
+    color: var(--primary);
     opacity: 0.9;
 }
 

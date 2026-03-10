@@ -97,9 +97,9 @@ body {
 }
 
 .hero__cta {
-    background: #ffffff;
-    color: #000000 !important;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    background: var(--text-dark);
+    color: var(--bg-white) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .hero__cta:hover {
@@ -108,14 +108,17 @@ body {
 }
 
 .hero__ghost {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(var(--bg-white-rgb), 0.05);
     color: var(--text-dark);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--dot-color);
 }
 
 .hero__ghost:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--bg-white-rgb), 0.1);
+    border-color: var(--primary);
 }
+
+
 
 /* Hero Stats Section */
 .hero__metrics {
@@ -163,9 +166,9 @@ body {
 }
 
 .step-card:hover {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--primary);
     transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--bg-white-rgb), 0.8);
 }
 
 .step-icon {
@@ -371,8 +374,8 @@ body {
 
 /* Mini Feature Card */
 .mini-card {
-    background: rgba(var(--bg-white-rgb), 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(var(--bg-white-rgb), 0.4);
+    border: 1px solid var(--dot-color);
     border-radius: 12px;
     padding: 2rem;
     transition: all 0.3s ease;
@@ -384,9 +387,10 @@ body {
 }
 
 .mini-card:hover {
-    background: rgba(var(--bg-white-rgb), 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: var(--bg-white);
+    border-color: var(--primary);
     transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
 }
 
 .mini-icon {
@@ -469,8 +473,8 @@ body {
 }
 
 .getstart_container .cta-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(var(--bg-white-rgb), 0.8);
+    border: 1px solid var(--dot-color);
     border-radius: 32px;
     display: flex;
     justify-content: space-between;
@@ -478,7 +482,7 @@ body {
     gap: 3rem;
     padding: 4rem !important;
     width: 100%;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-float);
     transition: all 0.4s ease;
     backdrop-filter: blur(10px);
 }
@@ -535,11 +539,11 @@ body {
 }
 
 .premium-footer {
-    background: #000;
-    color: #fff;
+    background: var(--bg-white);
+    color: var(--text-dark);
     padding: 6rem 0 2rem;
     position: relative;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--dot-color);
     background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
     background-size: 40px 40px;
 }
@@ -560,7 +564,7 @@ body {
 .footer-logo {
     font-size: 1.8rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--text-dark);
     text-decoration: none;
     letter-spacing: -1px;
     display: block;
@@ -581,7 +585,7 @@ body {
 }
 
 .social-links-new a {
-    color: #fff;
+    color: var(--text-dark);
     font-size: 1.25rem;
     opacity: 0.6;
 }
@@ -603,7 +607,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 2rem;
-    color: #fff;
+    color: var(--text-dark);
 }
 
 .footer-list {
@@ -623,7 +627,7 @@ body {
 }
 
 .footer-list a:hover {
-    color: #fff;
+    color: var(--primary);
 }
 
 /* Mini Brand Banner */
@@ -641,7 +645,7 @@ body {
     font-weight: 950;
     text-transform: uppercase;
     line-height: 1;
-    color: #fff;
+    color: var(--text-dark);
     opacity: 0.03;
     pointer-events: none;
     user-select: none;
@@ -705,11 +709,11 @@ body {
 /* CTA Banner */
 .cta-banner {
     padding: 6rem 0;
-    background: #000;
-    color: #fff;
+    background: var(--soft-gray);
+    color: var(--text-dark);
     position: relative;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--dot-color);
+    border-bottom: 1px solid var(--dot-color);
     background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
     background-size: 40px 40px;
 }
@@ -738,18 +742,19 @@ body {
 }
 
 .cta-banner__actions .hero__cta {
-    background: #fff;
-    color: #000 !important;
+    background: var(--primary);
+    color: white !important;
 }
 
 .cta-banner__actions .hero__ghost {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background: rgba(var(--bg-white-rgb), 0.1);
+    border: 1px solid var(--dot-color);
+    color: var(--text-dark);
 }
 
 .cta-banner__actions .hero__ghost:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--bg-white-rgb), 0.2);
+    border-color: var(--primary);
 }
 
 /* Team Section Styling */
@@ -763,7 +768,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 0rem;
 }
 
 .team-card {
@@ -777,7 +782,7 @@ body {
     aspect-ratio: 4/5;
     border-radius: 12px;
     overflow: hidden;
-    background: #1a1a1a;
+    background: var(--soft-gray);
     margin-bottom: 1.25rem;
     position: relative;
 }
@@ -798,8 +803,8 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    color: rgba(255, 255, 255, 0.05);
-    background: #0d0d0d;
+    color: var(--text-muted);
+    background: var(--bg-white);
 }
 
 .team-header {
@@ -859,7 +864,7 @@ body {
 
 .cta-banner-glass {
     background: linear-gradient(135deg, rgba(66, 133, 244, 0.1), rgba(13, 242, 201, 0.05));
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--dot-color);
     padding: 4rem;
     border-radius: 32px;
     display: flex;
@@ -872,7 +877,7 @@ body {
 .cta-content h2 {
     font-size: 2.25rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--text-dark);
     margin-bottom: 1rem;
 }
 

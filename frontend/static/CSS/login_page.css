@@ -88,8 +88,9 @@
 }
 
 .social-auth-btn:hover {
-    background: #222222;
-    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--text-dark);
+    color: var(--bg-white) !important;
+    border-color: var(--text-dark);
 }
 
 .social-auth-btn img {
@@ -125,7 +126,7 @@
 
 .form-group label {
     display: block;
-    color: #e0e0e0;
+    color: var(--text-dark);
     font-size: 0.85rem;
     font-weight: 500;
     margin-bottom: 0.4rem;
@@ -145,7 +146,7 @@
 }
 
 .forgot-link:hover {
-    color: #ffffff;
+    color: var(--primary);
 }
 
 .input-with-icon {
@@ -202,10 +203,10 @@
 }
 
 .toggle-password {
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--soft-gray);
+    border: 1px solid var(--card-border, rgba(0, 0, 0, 0.1));
     border-radius: 10px;
-    color: #555555;
+    color: var(--text-muted);
     cursor: pointer;
     width: 40px;
     height: 38px;
@@ -217,9 +218,9 @@
 }
 
 .toggle-password:hover {
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.2);
-    background: #222222;
+    color: var(--primary);
+    border-color: var(--primary);
+    background: var(--bg-white);
 }
 
 .submit-btn {
@@ -263,7 +264,7 @@
 }
 
 .auth-footer a {
-    color: #ffffff;
+    color: var(--primary);
     text-decoration: none;
     font-weight: 600;
 }
