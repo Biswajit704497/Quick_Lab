@@ -30,32 +30,11 @@ Live demo: https://quick-lab.onrender.com/
 ---
 
 
-## **How the ML model is loaded**
-The app loads the cancer model from the `models` directory. Example code (already used in `models/cancer_model.py`):
-
-```py
-import os
-import joblib
-
-current_dir = os.path.dirname(os.path.abspath(__file__))
-path = os.path.join(current_dir, "cancer.pkl")
-model = joblib.load(path)
-```
-
-This ensures the code finds `cancer.pkl` regardless of the working directory when the app is started.
-
----
-
 ## **Tech stack & libraries**
-- Python 3.12 (tested in local venv)
 - Flask — web framewor
 - Fast API - Backend ML model API
-- scikit-learn, pandas, numpy — ML + data handling
-- joblib — model serialization
+- Tensorflow, scikit-learn, pandas, numpy — ML + data handling
 
-3. Open `http://127.0.0.1:5000` in your browser.
-
----
 
 - Add Dockerfile for consistent deployment.
 
