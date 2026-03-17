@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block title %} About Us | Quick Lab {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
+
+<!-- About Hero Section -->
+<section class="section about-hero reveal active">
+    <div class="container text-center">
+        <div class="section-heading">
+            <h1 class="hero__title mx-auto">Our mission is to <span>democratize</span> health</h1>
+            <p class="hero__subtitle mx-auto">Quick Lab is an AI-first health monitoring platform dedicated to providing
+                real-time medical insights through advanced machine learning.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="section story-section reveal">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="story-content">
+                    <h2 class="section-heading__title">Modern Health Tech</h2>
+                    <p class="section-heading__subtitle">Founded in 2024, Quick Lab was born from a simple observation:
+                        medical diagnostics are often too slow and inaccessible. We believe that everyone should have
+                        the power to understand their vitals instantly using a smartphone and AI.</p>
+                    <p class="section-heading__subtitle">Our models are trained on millions of medical records, ensuring
+                        that every prediction is backed by data and reviewed by clinical experts.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="story-image-glass">
+                    <i class="bi bi-shield-check"></i>
+                    <span>Reliable & Precise AI Inference</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Grid -->
+<section class="section stats-section reveal">
+    <div class="container">
+        <div class="modules-grid-mini">
+            <div class="mini-card">
+                <div class="mini-icon" style="background: rgba(66, 133, 244, 0.1); color: #4285f4;">
+                    <i class="bi bi-lightning-charge"></i>
+                </div>
+                <h3>Real-time Analysis</h3>
+                <p>Get instant results for heart rate, glucose levels, and more in under 5 seconds.</p>
+            </div>
+            <div class="mini-card">
+                <div class="mini-icon" style="background: rgba(13, 242, 201, 0.1); color: #0df2c9;">
+                    <i class="bi bi-shield-lock"></i>
+                </div>
+                <h3>Privacy First</h3>
+                <p>Your health data is encrypted end-to-end and never shared with third parties.</p>
+            </div>
+            <div class="mini-card">
+                <div class="mini-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </div>
+                <h3>Advanced Forecasting</h3>
+                <p>Our trend analysis predicts potential issues before they become emergencies.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="section cta-final reveal">
+    <div class="container">
+        <div class="cta-banner-glass">
+            <div class="cta-content">
+                <h2>Join the Revolution</h2>
+                <p>Be a part of a community that prioritizes accessibility and innovation in medicine.</p>
+            </div>
+            <div class="cta-action">
+                <a href="{{ url_for('register_bp.register') }}" class="hero__cta">Get Started Now <i
+                        class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .about-hero {
+        padding-top: 140px;
+        padding-bottom: 80px;
+        background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+        background-size: 40px 40px;
+    }
+
+    .story-image-glass {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        height: 300px;
+        border-radius: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(20px);
+        gap: 1.5rem;
+    }
+
+    .story-image-glass i {
+        font-size: 5rem;
+        color: var(--accent);
+    }
+
+    .story-image-glass span {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-muted);
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(reveal => observer.observe(reveal));
+    });
+</script>
+
+{% endblock %}

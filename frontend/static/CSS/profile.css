@@ -1,0 +1,208 @@
+/* Antigravity Profile Design */
+
+.profile-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.container-profile {
+    max-width: 1000px;
+    z-index: 1;
+}
+
+.profile-card {
+    background: rgba(var(--bg-white-rgb), 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-float);
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .profile-card {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Sidebar Styling (Left) */
+.profile-sidebar {
+    background: rgba(var(--primary-rgb, 66, 133, 244), 0.03);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-theme="dark"] .profile-sidebar {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.profile-img-wrapper {
+    width: 150px;
+    height: 150px;
+    background: var(--bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--primary);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2rem;
+    border: 4px solid var(--soft-gray);
+}
+
+.profile-id-box {
+    background: var(--bg-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    box-shadow: var(--shadow-soft);
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.id-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+}
+
+.id-value {
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Main Content Styling (Right) */
+.profile-main {
+    padding: 4rem 3.5rem;
+}
+
+.profile-header {
+    margin-bottom: 3rem;
+}
+
+.profile-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.profile-header p {
+    color: var(--text-muted);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.detail-item {
+    margin-bottom: 0.5rem;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.detail-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Actions */
+.profile-actions {
+    margin-top: 4rem;
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: #ef4444;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 18px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-logout:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Background Elements (copied for consistency) */
+.auth-blobs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.auth-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.1;
+    animation: blob-move 25s infinite alternate;
+}
+
+.blob-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--primary);
+    top: -10%;
+    left: -10%;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: #8b5cf6;
+    bottom: -10%;
+    right: -10%;
+    animation-delay: -7s;
+}
+
+@media (max-width: 768px) {
+    .profile-sidebar {
+        padding: 3rem 2rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .profile-main {
+        padding: 3rem 2rem;
+    }
+
+    .profile-section {
+        padding-top: 8rem;
+    }
+}

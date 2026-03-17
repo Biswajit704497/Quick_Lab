@@ -1,0 +1,8 @@
+__pycache__/
+myenv/
+.vscode/
+.env
+backend/unused/
+routes/__pycache__/
+*.npy
+backend/nootbook/ecg_Clean_data/

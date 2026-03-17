@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
+
+
+<section id="home" class="hero reveal">
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero__body">
+        <h1 class="hero__title">
+          AI-Powered Models <span>for Predictive Health</span>
+        </h1>
+        <p class="hero__subtitle mb-5">
+          Leverage state-of-the-art health sector models to predict and monitor your well-being with unprecedented
+          precision.
+        </p>
+        <div class="hero__actions">
+          <a href="/login" class="hero__cta">
+            Start Predicting Free <i class="bi bi-arrow-right-short"></i>
+          </a>
+          <a href="#services" class="hero__ghost">
+            View Modules
+          </a>
+        </div>
+
+        <div class="hero__metrics">
+          <div class="metric-item">
+            <span class="metric-value">3+</span>
+            <span class="metric-label">Health Models</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-value">99.9%</span>
+            <span class="metric-label">Prediction Accuracy</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-value">Secure</span>
+            <span class="metric-label">Encrypted Data</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-steps-container">
+        <div class="hero-steps">
+          <div class="step-card step-blue active">
+            <div class="step-icon"><i class="bi bi-link-45deg"></i></div>
+            <div class="step-content">
+              <div class="step-title">1. Connect Vital Signs</div>
+              <div class="step-desc">Input or sync your health data securely.</div>
+            </div>
+            
+          </div>
+
+          <div class="step-card step-yellow">
+            <div class="step-icon"><i class="bi bi-cpu"></i></div>
+            <div class="step-content">
+              <div class="step-title">2. Choose Health Model</div>
+              <div class="step-desc">Select Cardio, Glucose, or Oncology.</div>
+            </div>
+          </div>
+
+          <div class="step-card step-red">
+            <div class="step-icon"><i class="bi bi-activity"></i></div>
+            <div class="step-content">
+              <div class="step-title">3. AI Analysis Running</div>
+              <div class="step-desc">Processing via health sector neural engine.</div>
+            </div>
+            
+          </div>
+
+          <div class="step-card step-green">
+            <div class="step-icon"><i class="bi bi-check-circle-fill"></i></div>
+            <div class="step-content">
+              <div class="step-title">4. Result Delivered</div>
+              <div class="step-desc">Download your AI-generated health report.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="services" class="section modules-section reveal">
+  <div class="container">
+    <div class="section-heading text-center mb-5">
+      <h2 class="section-heading__title">Smart Models for Health Oversight</h2>
+      <p class="section-heading__subtitle">A complete suite of AI-powered models for heart, glucose, and oncology
+        monitoring.</p>
+    </div>
+
+    <div class="modules-grid-mini">
+      <!-- Heart Module -->
+      <div class="mini-card card-heart">
+        <div class="mini-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+        <h3>Cardio Predictor</h3>
+        <p>Real-time ECG metrics processed with health sector neural engine.</p>
+        <a href="{{ url_for('heart_bp.heart_attack') }}" class="mini-link">Try it <i
+            class="bi bi-arrow-right-short"></i></a>
+      </div>
+
+      <!-- Diabetes Module -->
+      <div class="mini-card card-glucose">
+        <div class="mini-icon"><i class="bi bi-droplet-fill"></i></div>
+        <h3>Glucose Outlook</h3>
+        <p>Precision monitoring protocols designed for a weightless health journey.</p>
+        <a href="#" class="mini-link disabled">Try it <i class="bi bi-arrow-right-short"></i></a>
+      </div>
+
+      <!-- Cancer Module -->
+      <div class="mini-card card-cancer">
+        <div class="mini-icon"><i class="bi bi-shield-shaded"></i></div>
+        <h3>Oncology Screen</h3>
+        <p>Advanced cross-pattern detection for early life-saving intervention.</p>
+        <a href="#" class="mini-link disabled">Try it <i class="bi bi-arrow-right-short"></i></a>
+      </div>
+
+      <!-- Vital Module (Extra to match image density) -->
+      <div class="mini-card card-vitals">
+        <div class="mini-icon"><i class="bi bi-activity"></i></div>
+        <h3>Vital Analyzer</h3>
+        <p>Comprehensive analysis of blood pressure and respiration rates.</p>
+        <a href="#" class="mini-link disabled">Try it <i class="bi bi-arrow-right-short"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta-banner reveal">
+  <div class="container text-center">
+    <h2 class="cta-banner__title">Start Monitoring with Quick Lab</h2>
+    <p class="cta-banner__subtitle">Sign up for free and explore our suite of AI-powered health monitoring tools.</p>
+    <div class="cta-banner__actions">
+      <a href="/register" class="hero__cta">Get Started Free <i class="bi bi-arrow-right-short"></i></a>
+      <a href="{{ url_for('main_bp.about_page') }}" class="hero__ghost">About Us</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<Script>
+  // Crazy 3D Glow & Magnetic Effect
+  document.querySelectorAll('.module-card').forEach(card => {
+    card.onmousemove = (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+
+      // Dynamic Tilt Physics
+      const rotateX = ((y / rect.height) - 0.5) * -20;
+      const rotateY = ((x / rect.width) - 0.5) * 20;
+      card.style.transform = `perspective(1000px) translateY(-15px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    card.onmouseleave = () => {
+      card.style.transform = `perspective(1000px) translateY(0) rotateX(0) rotateY(0)`;
+    }
+  });
+
+  // Staggered Entrance Animation
+  const moduleObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('module-reveal-active');
+        }, index * 200);
+        moduleObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.module-wrapper').forEach(el => {
+    el.classList.add('module-reveal-hidden');
+    moduleObserver.observe(el);
+  });
+
+  // General Scroll Reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        revealObserver.unobserve(entry.target); // Only animate once
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+</Script>
+
+{% endblock %}
