@@ -130,5 +130,59 @@
         </div>
     </div>
 </section>
+ <footer class="premium-footer">
+            <div class="container footer-container">
+                <div class="footer-top">
+                    <div class="footer-brand-box">
+                        <a href="{{ url_for('main_bp.home') }}" class="footer-logo">Quick Lab</a>
+                        <p class="footer-tagline">Leveraging state-of-the-art AI for a healthier future. Predict,
+                            monitor, and thrive.</p>
+                        <div class="social-links-new">
+                            <a href="https://www.linkedin.com/in/subhadip-bar-496a682a2/" target="_blank"><i
+                                    class="bi bi-linkedin"></i></a>
+                            <a href="https://github.com/Biswajit704497/Quick_Lab.git" target="_blank"><i
+                                    class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        </div>
+                    </div>
 
+                    <div class="footer-links-grid">
+                        <div class="footer-col">
+                            <h4 class="footer-head">Platform</h4>
+                            <ul class="footer-list">
+                                <li><a href="{{ url_for('main_bp.home') }}">Home</a></li>
+                                <li><a href="{{ url_for('main_bp.home') }}#services">Health Models</a></li>
+                                <li><a href="{{ url_for('dashbord_bp.dashbord') }}">Dashboard</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-col">
+                            <h4 class="footer-head">Company</h4>
+                            <ul class="footer-list">
+                                <li><a href="{{ url_for('main_bp.about_page') }}">About Us</a></li>
+                                <li><a href="{{ url_for('main_bp.team_page') }}">Our Team</a></li>
+                                <li><a href="{{ url_for('main_bp.contact_page') }}">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-col">
+                            <h4 class="footer-head">Legal</h4>
+                            <ul class="footer-list">
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Cookie Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom-new">
+                    <p>&copy; 2026 Quick Lab. All rights reserved.</p>
+                    <div class="footer-status">
+                        <div class="status-dot"></div>
+                        <span>All Systems Operational</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
 {% endblock %}

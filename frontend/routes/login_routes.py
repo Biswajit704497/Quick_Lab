@@ -4,6 +4,7 @@ login_bp = Blueprint('login_bp',__name__)
 
 @login_bp.route('/login', methods=['GET','POST'])
 def login():
+
     # if user is already logged in, redirect to home
     if "user" in session:
         flash("You are already logged in.", "success")
@@ -13,10 +14,20 @@ def login():
         useremail = request.form.get('useremail')
         password = request.form.get('password')
 
-        cur = None
+        # input validation 
         try:
-
-            cur = mysql.connect.cursor()
+            fields = [useremail, password]
+            if any( not field.strip() for field in fields):
+                flash("all fields are required","error")
+                return redirect(url_for("login_bp.login"))
+            
+        except Exception as e:
+            print(e)
+            flash("Database error","error")
+        
+        try:
+            conn = mysql.connect
+            cur = conn.cursor()
             cur.execute("SELECT * FROM userlogin WHERE userEmail=%s AND userPassword=%s", (useremail, password))
             user = cur.fetchone()
             
@@ -35,11 +46,14 @@ def login():
         finally:
             if cur:
                 cur.close()
+                conn.close()
+
     return render_template('login.html')    
 
 
 
 
+# logout route
 @login_bp.route('/logout')
 def logout():
     session.pop('user', None)
