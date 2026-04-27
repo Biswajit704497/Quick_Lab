@@ -80,7 +80,7 @@ def google_callback():
 
     except Exception as e :
         print("database: ", e)
-        flash("Something went wrong", "warning")
+        flash("we are working", "warning")
         return redirect(url_for("login_bp.login"))
 
     
