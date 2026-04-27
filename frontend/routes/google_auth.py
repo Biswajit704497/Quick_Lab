@@ -50,7 +50,7 @@ def google_callback():
                  userFullName,
                  )
     
-    sql_query = """INSERT INTO userLogin(id,email,name) VALUES(%s,%s,%s)"""
+    sql_query = """INSERT INTO UserLogin(id,email,name) VALUES(%s,%s,%s)"""
 
     # send data in  Database
     try:
