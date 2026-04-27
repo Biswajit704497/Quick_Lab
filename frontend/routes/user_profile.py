@@ -13,7 +13,7 @@ def profile():
     useremail = session["user"]
     print(session["user"])
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cur.execute("SELECT * FROM userlogin WHERE userEmail=%s", (useremail,))
+    cur.execute("SELECT * FROM UserLogin WHERE email=%s", (useremail,))
     user_data = cur.fetchone()
     cur.close()
     return render_template("profile.html", user = user_data)

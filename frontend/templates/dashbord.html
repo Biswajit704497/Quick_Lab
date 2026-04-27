@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
 
+{% block title %}Dashbord {% endblock%}
 
-{% block title %}Dashbord{% endblock %}
+{% block content%}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/dash.CSS ' ) }}">
 
-{% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='CSS/dashbord_page.css') }}">
+<section>
+<h1>ECG Model Prediction API </h1>
+<div class="box1">
+    <p>Upload ECG Record Files</p>
+
+    <label>Upload .dat File</label>
+    <div class="input-div">
+        <input type="file" placeholder="Choose .dat file">
+    </div>
+     <label>Upload .dat File</label>
+    <div class="input-div">
+        <input type="file" placeholder="Choose .dat file" value=".dar file"> 
+    </div>
+
+    <button>Predict</button>
+</div>
+
+</section>
 
 
-<h1>Wllcome to our dashbord</h1>
 
 {% endblock %}

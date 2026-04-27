@@ -7,8 +7,8 @@ def login():
 
     # if user is already logged in, redirect to home
     if "user" in session:
-        flash("You are already logged in.", "success")
-        return redirect(url_for('main_bp.home'))
+        
+        return redirect(url_for('dashbord_bp.dashbord'))
 
     if request.method == 'POST':
         useremail = request.form.get('useremail')
@@ -28,7 +28,7 @@ def login():
         try:
             conn = mysql.connect
             cur = conn.cursor()
-            cur.execute("SELECT * FROM userlogin WHERE userEmail=%s AND userPassword=%s", (useremail, password))
+            cur.execute("SELECT * FROM UserLogin WHERE email=%s AND password=%s", (useremail, password))
             user = cur.fetchone()
             
             # print("database reply",user)
@@ -44,9 +44,10 @@ def login():
             flash("Database connection problem", "error")
 
         finally:
-            if cur:
-                cur.close()
-                conn.close()
+            # if cur:
+            #     cur.close()
+            #     conn.close()
+            pass
 
     return render_template('login.html')    
 
