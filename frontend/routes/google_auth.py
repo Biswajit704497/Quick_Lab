@@ -55,7 +55,7 @@ def google_callback():
     # send data in  Database
     try:
 
-        db = mysql.connect
+        db = mysql.connect()
         cursor = db.cursor()
         
         #check user alreay register
@@ -65,21 +65,24 @@ def google_callback():
         if not user :
             cursor.execute(sql_query, user_data)
             db.commit()
+            cursor.close()
+            db.close()
 
-            session["user"] = user_info["email"]
-            flash("login Successfully", "success")
-            return redirect(url_for("login_bp.login"))
+            session["user"] = userEmail
+            flash("Login Successful", "success")
+            return redirect(url_for("main_bp.home"))
         elif user:
+            cursor.close()
+            db.close()
             session["user"] = user_info["email"]
-            flash("login Successfully", "success")
+            flash("Login Successful", "success")
             return redirect(url_for("main_bp.home"))
 
     except Exception as e :
         print("database: ", e)
-        flash("something wrong", "warning")
+        flash("Something went wrong", "warning")
         return redirect(url_for("login_bp.login"))
-            
-    return redirect(url_for("login_bp.login"))
+
     
 
 
